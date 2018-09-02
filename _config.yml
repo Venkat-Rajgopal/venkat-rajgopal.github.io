@@ -12,14 +12,14 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dark" # "default" , "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "Random acts of Statistics"
 title_separator          : "-"
 name                     : "Venkatramani Rajgopal"
-description              : "An amazing website."
+description              : "Statistics and Machine learning"
 url                      : "https://venkat-rajgopal.github.io"
 #url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -78,7 +78,7 @@ naver_site_verification  :
 
 # Social Sharing
 twitter:
-  username               :
+  username               : "einerderklopft"
 facebook:
   username               :
   app_id                 :
@@ -104,9 +104,9 @@ author:
   name             : "Venkatramani Rajgopal"
 #  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   avatar           : https://avatars.githubusercontent.com/venkat-rajgopal
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
-  email            :
+  bio              : "Deep learning techniques for health sciences."
+  location         : "Leipzig, Germany"
+  email            : "venkatramani.r@gmail.com"
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
   bitbucket        :
@@ -115,7 +115,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           :
+  github           : "Venkat-Rajgopal"
   gitlab           :
   google_plus      :
   keybase          :
