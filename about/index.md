@@ -13,7 +13,7 @@ I grew up in Mumbai, India and completed my undergrad in Statistics.
 When i am not working, i am on my looking for new corners of the region which inspire me to keep going in life. 
 
 <!-- ![](http://venkat-rajgopal.github.io/images/woods.jpg) -->
-![](/images/woods.jpg)
+![](venkatßrajgopal.github.io/images/woods.jpg)
 
 <!-- I work at DataCamp as a Data Scientist on the growth team. Previously, I was a Data Analyst at Etsy working with their search team to design, implement, and analyze experiments on the ranking algorithm, UI changes, and new features. In summer 2016, I completed [Metis's](http://www.thisismetis.com/data-science) three-month, full-time Data Science Bootcamp, where I did several data science projects, ranging from using random forests to predict [successful projects on DonorsChoose.org](https://github.com/robinsones/Predicting-Sucess-on-DonorsChoose) to building an application in R Shiny that [helps data science freelancers find their best-fit jobs](https://github.com/robinsones/Freelancer-Shiny-App). Before Metis, I graduated from INSEAD with a Master's degree in Management (specialization in Organizational Behavior). I also earned my bachelor's degree from Rice University in Decision Sciences, an interdisciplinary major I designed that focused on understanding how people behave and make decisions. 
 
