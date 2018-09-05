@@ -2,7 +2,7 @@
 layout: single
 title: About Me
 tags: [about]
-permalink: /about
+<!-- permalink: /about -->
 comments: false
 ---
 
@@ -13,3 +13,5 @@ I grew up in Mumbai, India and completed my undergrad in Statistics.
 When i am not working, i am on my looking for new corners of the region which inspire me to keep going in life. 
 
 ![](http://venkat-rajgopal.github.io/images/woods.jpg)
+
+<!-- ![](http://robinsones.github.io/images/2015-07-31 14.03.51.jpg) -->
