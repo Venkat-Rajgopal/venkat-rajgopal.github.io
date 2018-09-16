@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dark" # "default" , "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    :  "air" #,"aqua" , "default" , "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -104,7 +104,7 @@ author:
   name             : "Venkatramani Rajgopal"
 #  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   avatar           : https://avatars.githubusercontent.com/venkat-rajgopal
-  bio              : "Deep learning techniques for health sciences."
+  bio              : "Statistics and Deep learning"
   location         : "Leipzig, Germany"
   email            : "venkatramani.r@gmail.com"
   uri              :
