@@ -86,3 +86,36 @@ In effect what this does is that a random point is reinstated along the line seg
 This can be conviniently performed in R using the `SMOTE()` function we call from the `library(DMwR)`. 
 
 
+```r
+# split data into train and test
+dfindex <- createDataPartition(df$classes, p = 0.7, list = FALSE)
+train_data <- df[dfindex, ]
+test_data  <- df[-dfindex, ]
+```
+
+Lets look at the original labels in training set. 
+
+```r
+> table(train_data$classes)
+
+   benign malignant 
+      321       169 
+```
+
+
+Using `SMOTE()`, we can oversample the minority class. The function takes the parameter `perc.over` which over samples. `perc.under`  paramater can also be used to undersample the majority class. A typical example is below,
+
+```r
+library(DMwR)
+dat <-  SMOTE(classes~., data = train_data[c(2:11)], perc.over = 100, k = 3)
+
+> table(smote_train$classes)
+
+   benign malignant 
+      338       338 
+
+```
+
+
+Codes for this post is on my [GitHub](https://github.com/Venkat-Rajgopal/Blog-post-codes/tree/master/SMOTE_Sampling). SMOTE explanation can be found [here](https://www3.nd.edu/~dial/publications/chawla2005data.pdf) 
+
