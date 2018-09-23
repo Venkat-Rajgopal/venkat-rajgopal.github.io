@@ -117,5 +117,5 @@ dat <-  SMOTE(classes~., data = train_data[c(2:11)], perc.over = 100, k = 3)
 ```
 
 
-Codes for this post is on my [GitHub](https://github.com/Venkat-Rajgopal/Blog-post-codes/tree/master/SMOTE_Sampling). SMOTE explanation can be found [here](https://www3.nd.edu/~dial/publications/chawla2005data.pdf) 
+Codes for this post is on my [GitHub](https://github.com/Venkat-Rajgopal/Blog-post-codes/tree/master/SMOTE_Sampling). A nice explanation about SMOTE is [here](https://www3.nd.edu/~dial/publications/chawla2005data.pdf) 
 
