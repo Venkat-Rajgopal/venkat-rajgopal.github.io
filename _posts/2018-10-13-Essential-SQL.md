@@ -13,7 +13,7 @@ In this post i am collating some basic SQL queries. The post is intented to keep
 We use a dummy data just to make the syntaxing easy to understand. 
 
 ****
-## Selecting Columns
+## 1. Selecting Columns
 
 Every query will have at least these two parts: `SELECT` and `FROM`.
 
@@ -78,7 +78,7 @@ FROM people;
 ```
 
 ****
-## Filtering rows
+## 2. Filtering rows
 The `WHERE` keyword allows filtering based on both text and numeric values in a table. The common different comparison operators are similar to that of R or Python.  The following code returns all films with the title 'Metropolis':
 
 ```sql
@@ -87,4 +87,59 @@ FROM films
 WHERE title = 'Metropolis';
 ```
  *Note:* `!=` is the not equal operator as per the SQL standard. 
+`WHERE` clause can also be used to filter text results, such as names or countries.
 
+### Using `WHERE AND`
+This involves selecting based on multiple conditions. `WHERE` can be easily combined with `AND`. 
+
+```sql
+SELECT title
+FROM films
+WHERE release_year > 1994
+AND release_year < 2000;
+```
+### Using `WHERE OR`
+`OR` allows to select rows based on multiple conditions where some but not all of the conditions need to be met. 
+
+_Note_: Column name for every `OR` needs to be specified. 
+
+```sql
+SELECT title
+FROM films
+WHERE release_year = 1994
+OR release_year = 2000;
+```
+Combining `AND` `OR`, make sure to enclose the individual clauses in parenthesis:
+
+```sql
+SELECT title
+FROM films
+WHERE (release_year = 1994 OR release_year = 1995)
+AND (certification = 'PG' OR certification = 'R');
+```
+
+### `BETWEEN`
+Checking for ranges is common in SQL. `BETWEEN` keyword provides a useful shorthand for filtering values within a specified range.
+
+```sql
+SELECT title
+FROM films
+WHERE release_year
+BETWEEN 1994 AND 2000;
+```
+
+Here's a full working example of using multiple queries.
+
+> Using `BETWEEN` with `AND` on the films data to get the title and release year of all Spanish or French language films released between 1990 and 2000 (inclusive) with budgets over $100 million. This can be expressed as:
+
+```sql
+SELECT title, release_year
+FROM films
+WHERE release_year
+BETWEEN 1990 and 2000
+AND budget > 100000000
+AND (language = 'Spanish' or language = 'French')
+```
+
+### `WHERE IN` operator
+`WHERE` can be messy at times for multiple filtering. 
