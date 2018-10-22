@@ -8,9 +8,32 @@ tags: [SQL]
 comments: true
 ---
 
-In this post i am collating some basic SQL queries. The post is intented to keep really easy to understand without having to go through any practice. Some queries i have referenced to R or Python for quick comparison. I hope to update this as and when i come across new things. 
+In this post i am collating some basic SQL queries. The post is intented to keep really easy to understand without having to go through any practice. Some queries i have referenced to R or Python for quick comparison.  
 
-We use a dummy data just to make the syntaxing easy to understand. 
+We use a two dummy databases, **FILMS** and **PEOPLE** ,  just to make the syntaxing easy to understand. 
+
+****
+The sample **PEOPLE** data set looks like this: 
+
+column0 | column1 | column2 | column3
+------- | ------- | ------- | -------
+id | name | birthdate | deathdate
+1 | 50 Cent | 1975-07-06 | null
+2 | A. Michael Baldwin | 1963-04-04 | null
+3 | A. Raven Cruz | null | null
+4 | A.J. DeLucia | null | null
+5 | A.J. Langer | 1974-05-22 | null
+6 | Aaliyah | 1979-01-16 | 2001-08-25
+7 | Aaron Ashmore | 1979-10-07 | null
+
+
+**FILMS** database. 
+
+id | title | release_year | country | duration | language | certification | gross | budget
+---|-------|--------------|---------|----------|----------|---------------|-------|-------
+1 | Intolerance: Love's Struggle Throughout the Ages | 1916 | USA | 123 | null | Not Rated | null | 385907
+2 | Over the Hill to the Poorhouse | 1920 | USA | 110 | null | null | 3000000 | 100000
+
 
 ****
 ## 1. Selecting Columns
@@ -142,4 +165,164 @@ AND (language = 'Spanish' or language = 'French')
 ```
 
 ### `WHERE IN` operator
-`WHERE` can be messy at times for multiple filtering. 
+`WHERE` can be messy at times for multiple filtering. Hence the `IN` operator. The IN operator allows to specify multiple values in a WHERE clause, making it easier and quicker to specify multiple `OR` conditions! 
+
+The following query gets the title and release year of all films released in 1990 or 2000 that were longer than two hours. 
+
+```sql
+SELECT release_year, title
+FROM films
+WHERE release_year IN (1990, 2000)
+AND duration > 120;
+```
+
+### `NULL` and `IS NULL` operator
+NULL represents a missing or unknown value. Check for NULL values is done using the expression `IS NULL`. 
+
+Filtering out missing values is simply `IS NOT NULL`. 
+
+> For eg: Title of all films which doesnt have a budget associated with it.
+
+```sql
+SELECT title
+FROM films
+WHERE budget IS NULL;
+```
+
+### `LIKE` and `NOT LIKE` operator
+`LIKE` facilitates searching for patterns rather than a specific text string. 
+
+The LIKE operator can be used in a WHERE clause to search for a pattern in a column. To accomplish this, we use something called a wildcard as a placeholder for some other values. 
+
+The two wildcards can be used with LIKE: 
+`%` and `_` . 
+
+> `%` matches to zero or many characters in text. This query matches queries like Datascience, Datacomp etc.
+
+```sql
+SELECT name
+FROM companies
+WHERE name LIKE 'Data%';
+```
+Names that do not start with 'Data' we can write, `WHERE name NOT LIKE 'Data%';`.
+****
+
+## 3. Aggregate functions
+This third section deals with some calculations on data in a database.
+
+As expected these are `AVG`, `MAX`, `SUM` functions. 
+
+> SUM function to get the total amount grossed by all films made in the year 2000 or later:
+
+```sql
+SELECT SUM(gross)
+FROM films
+WHERE release_year >= 2000;
+```
+> Amount grossed by the best performing film between 2000 and 2012, inclusive. 
+
+```sql
+SELECT MAX(gross)
+FROM films
+WHERE release_year BETWEEN 2000 and 2012;
+```
+
+### Alising
+Aliasing simply means you assign a temporary name to something. To alias, you use the `AS` keyword. 
+
+> Getting the average duration in hours for all films, aliased as avg_duration_hours.
+
+```sql
+SELECT AVG(duration) / 60.0 AS avg_duration_hours
+FROM films;
+```
+***
+
+## 4. Sorting, Grouping and joins
+
+### 'ORDER BY'
+ORDER BY keyword is used to sort results in ascending or descending order according to the values of one or more columns. `ORDER BY` sort by default by ascending order. 
+
+```sql
+SELECT title
+FROM films
+ORDER BY release_year DESC;
+```
+
+### Sorting single columns
+To order results in descending order, simply put the keyword `DESC` after your ORDER BY. 
+
+`ORDER BY` can also be used to sort on multiple columns. It will sort by the first column specified, then sort by the next, then the next, and so on. 
+
+
+> The birth date and name of people in the people table, in order of when they were born and alphabetically by name.
+
+```sql
+SELECT birthdate, name
+FROM people
+ORDER BY birthdate, name
+```
+
+### `GROUP BY`
+This applows you to aggregate results by one or more columns. 
+
+Commonly, `GROUP BY` is used with aggregate functions like COUNT() or MAX(). Note that `GROUP BY` always goes after the FROM clause. 
+
+> Getting the release year and count of films realesed from each year. 
+
+```sql
+SELECT release_year, count(*)
+FROM films
+GROUP BY release_year
+ORDER BY count DESC;
+```
+
+> Getting the release year, country, and highest budget spent making a film for each year, for each country. Sort results by release year and country.
+
+```sql
+SELECT release_year, country, MAX(budget)
+FROM films
+GROUP BY release_year, country
+ORDER BY release_year, country;
+```
+
+Also, aggregate functions can't be used in `WHERE` clauses. The below is **invalid**. 
+
+```sql
+SELECT release_year
+FROM films
+GROUP BY release_year
+WHERE COUNT(title) > 10;
+```
+
+For this we use `HAVING` clause. 
+
+```sql
+SELECT release_year
+FROM films
+GROUP BY release_year
+HAVING COUNT(title) > 10;
+```
+
+> Query that returns the average budget and average gross earnings for films in each year after 1990, if the average budget is greater than $60 million. 
+
+```sql
+SELECT release_year, AVG(budget) AS avg_budget, AVG(gross) AS avg_gross
+FROM films
+WHERE release_year > 1990
+GROUP BY release_year
+HAVING AVG(budget) > 60000000
+ORDER BY avg_gross DESC
+```
+
+> Get the country, average budget, and average gross take of countries that have made more than 10 films. Order the result by country name, and limit the number of results displayed to 5. 
+
+```sql
+SELECT country, AVG(budget) AS avg_budget, AVG(GROSS) AS avg_gross
+FROM films
+GROUP BY country 
+HAVING count(title) > 10 
+ORDER BY country
+LIMIT 5;
+```
+

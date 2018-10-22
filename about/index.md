@@ -19,13 +19,13 @@ width="50%" hspace="20" align="right">
 
 What about stuff outside of Math / Statistics and AI ? 
 
-I live in Leipzig which is couple of hours from Berlin. Over the years Leipzig has quitely grown under the shadows of its Big brother Berlin. Leipzig apart from being a music loving city (coutesy of [Johann Sebastian Bach's](https://en.wikipedia.org/wiki/Johann_Sebastian_Bach) influnce) is also one of the finest city for Bike riding. 
+I live in Leipzig which is couple of hours from Berlin. Over the years Leipzig has quitely grown under the shadows of its Big brother Berlin. Leipzig apart from being a music loving city (coutesy of [Johann Sebastian Bach's](https://en.wikipedia.org/wiki/Johann_Sebastian_Bach) influence) is also one of the finest city for Bike riding. 
 
-Discovering places in Germany on the Bike has been a real motivation for me. So far i have never owned a car but i have owned 3 professional mountain bikes. 
+Discovering places in Germany on the Bike has been a real motivation for me. Biking has helped me free up my mind clogged with unnecessary thoughts. So far i have never owned a car but i have owned 3 professional mountain bikes. 
 
 I have never had meat in my life and neither intend to do so. 
 
-I only listen to _pure music_ which i feel is 80's Thrash Metal and pure instrumental music. I am a big admirer of some of the really talanted Indian Folk and Metal bands ([Indian Ocean](https://en.wikipedia.org/wiki/Indian_Ocean_(band)),  [Kryptos](https://en.wikipedia.org/wiki/Kryptos_(band))) who are largely unnoticed in India particularly because of lack of musical knowledge. 
+I only listen to _pure music_ which i feel is 80's Thrash Metal and pure instrumental music. I am a big admirer of some of the really talanted Indian Folk and Metal bands ([Indian Ocean](https://en.wikipedia.org/wiki/Indian_Ocean_(band)),  [Kryptos](https://en.wikipedia.org/wiki/Kryptos_(band))) who are largely unnoticed in India particularly because of lack of non-commercial musical knowledge. 
 
 Having brought up in India, it is normal to speak multiple languages. I speak 6 languages. Professionally you can communicate with me in English and German. 
 
