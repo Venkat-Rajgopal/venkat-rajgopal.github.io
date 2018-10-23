@@ -15,9 +15,9 @@ We use a two dummy databases, **FILMS** and **PEOPLE** ,  just to make the synta
 ****
 The sample **PEOPLE** data set looks like this: 
 
-column0 | column1 | column2 | column3
-------- | ------- | ------- | -------
+
 id | name | birthdate | deathdate
+------- | ------- | ------- | -------
 1 | 50 Cent | 1975-07-06 | null
 2 | A. Michael Baldwin | 1963-04-04 | null
 3 | A. Raven Cruz | null | null
@@ -238,7 +238,7 @@ FROM films;
 ```
 ***
 
-## 4. Sorting, Grouping and joins
+## 4. Sorting and Grouping
 
 ### 'ORDER BY'
 ORDER BY keyword is used to sort results in ascending or descending order according to the values of one or more columns. `ORDER BY` sort by default by ascending order. 
@@ -325,4 +325,14 @@ HAVING count(title) > 10
 ORDER BY country
 LIMIT 5;
 ```
+---
+That is it for now. More intermediate and advanced stuff on joins, pivots to be looked upon later. 
+
+***
+## Resources and Further exercises
+[Data Camp - Intro to SQL for Data Science](https://www.datacamp.com/courses/intro-to-sql-for-data-science)
+
+[Data World](https://docs.data.world/documentation/sql/concepts/basic/intro.html) also has a bunch of intermediate and advanced terms on SQL. 
+
+
 
