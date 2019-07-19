@@ -1,4 +1,5 @@
 
-This Blog is created using the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/). 
+This repo is for my [blog page](https://venkat-rajgopal.github.io).
+
 
 
