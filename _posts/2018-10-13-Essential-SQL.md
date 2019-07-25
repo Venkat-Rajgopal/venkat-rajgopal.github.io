@@ -35,6 +35,12 @@ id | title | release_year | country | duration | language | certification | gros
 2 | Over the Hill to the Poorhouse | 1920 | USA | 110 | null | null | 3000000 | 100000
 
 
+
+- [Selecting Columns](#Selecting-Columns)
+- [Filtering rows](#Filtering-rows)
+- [Aggregate](#Aggregate-functions)
+- [Sorting and Grouping](#Sorting-and-Grouping)
+
 ****
 ## 1. Selecting Columns
 
