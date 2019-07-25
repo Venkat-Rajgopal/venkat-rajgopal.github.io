@@ -10,6 +10,15 @@ comments: true
 
 In this post i am collating some basic SQL queries. The post is intented to keep really easy to understand without having to go through any practice. Some queries i have referenced to R or Python for quick comparison.  
 
+This post covers the following, 
+
+
+- [Selecting Columns](#Selecting-Columns)
+- [Filtering rows](#Filtering-rows)
+- [Aggregate](#Aggregate-functions)
+- [Sorting and Grouping](#Sorting-and-Grouping)
+
+
 We use a two dummy databases, **FILMS** and **PEOPLE** ,  just to make the syntaxing easy to understand. 
 
 ****
@@ -36,10 +45,6 @@ id | title | release_year | country | duration | language | certification | gros
 
 
 
-- [Selecting Columns](#Selecting-Columns)
-- [Filtering rows](#Filtering-rows)
-- [Aggregate](#Aggregate-functions)
-- [Sorting and Grouping](#Sorting-and-Grouping)
 
 ****
 ## 1. Selecting Columns
