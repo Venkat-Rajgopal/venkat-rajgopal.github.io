@@ -8,7 +8,7 @@ tags: [RDBMS]
 comments: true
 ---
 
-## Introduction
+# Introduction
 This section focuses on using Relational databases, like creating Tables, Truncating values and eplore unique features of a Database. This post we cover the following part of querying through a relational database. 
 
 - [Type Casting](#Type-Casting)
@@ -23,7 +23,7 @@ SELECT transaction_date, amount + CAST(fee AS integer) AS net_amount
 FROM transactions;
 ````
 
-# 
+****
 ### Data types
 
 ```sql
@@ -231,4 +231,5 @@ ON affiliations.professor_id = professors.id
 GROUP BY professors.university_id
 order by count DESC;
 ```
+
 

@@ -13,10 +13,10 @@ In this post i am collating some basic SQL queries. The post is intented to keep
 This post covers the following, 
 
 
-- [Selecting Columns](#Selecting-Columns)
-- [Filtering rows](#Filtering-rows)
-- [Aggregate](#Aggregate-functions)
-- [Sorting and Grouping](#Sorting-and-Grouping)
+- [Selecting Columns](#1-Selecting-Columns)
+- [Filtering rows](#2-Filtering-rows)
+- [Aggregate](#3-Aggregate-functions)
+- [Sorting and Grouping](#4-Sorting-and-Grouping)
 
 
 We use a two dummy databases, **FILMS** and **PEOPLE** ,  just to make the syntaxing easy to understand. 
