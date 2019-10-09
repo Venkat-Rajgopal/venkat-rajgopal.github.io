@@ -10,7 +10,7 @@ comments: true
 
 The buzzword among the Deep Learning community is about the latest revision to Optimization algorithm **ADAM** published by Liyuan Liu known as the [Variance of Adaptive Learning](https://arxiv.org/pdf/1908.03265.pdf), **Rectified Adam**.  
 
-In this post we first talk about the difference and why the authors claim that **R-Adam** works better. Subsequently we implement this on CIFAR-10 using Keras. Note i am using the revised **Tensorflow 2.0** backed Keras, so you might have to twek the code if you are on the older verion Tensorflow 1.14. 
+In this post we first talk about the difference and why the authors claim that **R-Adam** works better. Subsequently we implement this on CIFAR-10 using Keras. Note i am using the revised **Tensorflow 2.0** backed Keras, so you might have to tweak the code if you are on the older verion Tensorflow 1.14. 
 
 So lets directly dive into it. Here is a quick review of all adamptive optimizers. 
 
@@ -70,7 +70,7 @@ A 3 layer CNN is modelled as below.
 ```python
 def define_model(opt = opt):
 	model = Sequential()
-	model.add(Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same', input_shape=(32, 32, 3)))
+	model.add(Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same',input_shape=(32, 32, 3)))
 	model.add(Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same'))
 	model.add(MaxPooling2D((2, 2)))
 	model.add(Dropout(0.2))
