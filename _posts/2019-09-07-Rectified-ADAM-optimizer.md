@@ -12,7 +12,12 @@ The buzzword among the Deep Learning community is about the latest revision to O
 
 In this post we first talk about the difference and why the authors claim that **R-Adam** works better. Subsequently we implement this on CIFAR-10 using Keras. Note i am using the revised **Tensorflow 2.0** backed Keras, so you might have to tweak the code if you are on the older verion Tensorflow 1.14. 
 
-So lets directly dive into it. Here is a quick review of all adamptive optimizers. 
+So lets directly dive into it. Heere is what we cover. 
+- [Adaptive Learning](#Adaptive-Learning)
+- [Adam](#Adam)
+- [R-Adam](#R-Adam)
+- [Training CIFAR-10 in Tensorflow 2.0](#Training-CIFAR-10-with-R-Adam-vs-Adam)
+- [Results](#Results)
 
 # Adaptive Learning
 We know the problem of setting different learning rates during training with SGD. Choosing the learning rate turns out to be a difficult hyper-parameter to set during training a network. The learning rate also significantly effects the model performance. SGD with momentum algorithm in a way address this problem, but it only comes with the cost of adding another hyperparameter. It thus made sense to use a separate learning rate for each parameter and automatically adapt it during the training phase. This led to the development of algorithms with the so called _adaptive learning rates_. 
@@ -105,3 +110,7 @@ The whole code for the project can be found at my [GitHub](https://github.com/Ve
 
 Do check out the R-Adam [paper publication](https://arxiv.org/pdf/1908.03265.pdf). 
 
+
+
+Testing mathjax
+$$a^2 + b^2 = c^2$$
