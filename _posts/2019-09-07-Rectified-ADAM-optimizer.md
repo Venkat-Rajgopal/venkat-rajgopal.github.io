@@ -109,8 +109,3 @@ We however see a a lower accuracy with R-Adam as compared to Adam, with all othe
 The whole code for the project can be found at my [GitHub](https://github.com/Venkat-Rajgopal/Blog-post-codes/tree/master/). 
 
 Do check out the R-Adam [paper publication](https://arxiv.org/pdf/1908.03265.pdf). 
-
-
-
-Testing mathjax
-$$a^2 + b^2 = c^2$$
