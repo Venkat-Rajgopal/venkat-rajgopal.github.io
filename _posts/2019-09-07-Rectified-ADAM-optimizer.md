@@ -113,5 +113,4 @@ The whole code for the project can be found at my [GitHub](https://github.com/Ve
 ## Sources 
 [1] Ian Goodfellow-et-al-2016 ["Deep Learning book"](http://www.deeplearningbook.org).  
 [2] Liyuan Liu ['On the Variance of the Adaptive Learning Rate and Beyond'](https://arxiv.org/pdf/1908.03265.pdf).
-
 [3] Adrian Rosebrock ['PyImageSearch'](https://www.pyimagesearch.com)
