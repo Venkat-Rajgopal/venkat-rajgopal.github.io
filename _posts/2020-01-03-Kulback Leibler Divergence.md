@@ -40,3 +40,6 @@ def kl_divergence(p, q):
 ```
 
 ![](http://venkat-rajgopal.github.io/plots/kl_divergence/kl_divergence.png)
+
+
+$D_{KL}(p(x)||q(x))$ = $\sum_{x \in X}p(x) \frac{p(x)}{q(x)}$
