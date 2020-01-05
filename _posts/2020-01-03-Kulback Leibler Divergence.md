@@ -5,13 +5,8 @@ title: "Kulback Leibler Divergence"
 excerpt: "KL Divergence explained"
 date: 2020-01-03
 tags: [statistics, lossfunction]
-use_math: true
 comments: true
 ---
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
 # Introduction
 To measure the difference between two probability distributions over the same variable $x$, a measure, called the **Kullback-Leibler divergence** is used. 
 
