@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 author_profile: true
 title: "Kulback Leibler Divergence"
 excerpt: "KL Divergence explained"
