@@ -11,7 +11,7 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 # theme                  : "minimal-mistakes-jekyll"
-# remote_theme           : "mmistakes/minimal-mistakes"
+remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    :   "air"   # "contrast"  , "default" , "dirt" ,  ,"contrast"  , "air" ,"aqua" , "dark",  "neon", "mint", "plum", "sunrise"
 
 # Site Settings
@@ -172,7 +172,7 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 
 # Conversion
-markdown: maruku # kramdown
+markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
