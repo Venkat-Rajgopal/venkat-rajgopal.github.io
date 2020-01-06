@@ -10,9 +10,12 @@ comments: true
 # Introduction
 To measure the difference between two probability distributions over the same variable $x$, a measure, called the **Kullback-Leibler divergence** is used. 
 
-The KL divergence is non-symmetric between two probability distributions $p(x)$ and $q(x)$, denoted as $D_{KL}(p(x)||q(x))$ is used to measure the information loss when $q(x)$ is used to approximate $p(x)$. 
+The KL divergence is non-symmetric between two probability distributions $p(x)$ and $q(x)$, denoted as $D_{KL}(p(x)||q(x))$. 
 
-$$ D_{KL}(p(x)||q(x)) $$ = $$ \sum_{x \in X}p(x) \frac{p(x)}{q(x)} $$
+The divergence is used to measure the information loss when $q(x)$ is used to approximate $p(x)$. Formally it can be written as, 
+
+
+$$D_{KL}(p(x)||q(x))$$ = $$\sum_{x \in X}p(x) \frac{p(x)}{q(x)}$$
 
 Typically $p(x)$ represents the true distribution of data or a precisely calculated theoretical distribution. The measure $q(x)$ typically represents a theory, model, description, or **approximation of $p(x)$**.
 
