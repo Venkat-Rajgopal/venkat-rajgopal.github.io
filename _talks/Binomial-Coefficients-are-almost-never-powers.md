@@ -1,4 +1,5 @@
 ---
+layout: single
 title: "Binomial Coefficients are almost never powers"
 collection: talks
 permalink: /talks/binomial-coefficients
