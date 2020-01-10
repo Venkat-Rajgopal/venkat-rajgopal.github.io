@@ -1,7 +1,6 @@
 ---
 layout: single
 title: "Binomial Coefficients are almost never powers"
-collection: talks
 permalink: /talks/binomial-coefficients
 date: 2016-01-11
 ---
