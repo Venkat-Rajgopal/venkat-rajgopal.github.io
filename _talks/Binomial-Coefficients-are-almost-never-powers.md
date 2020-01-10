@@ -1,9 +1,9 @@
 ---
+title: "Binomial Coefficients are almost never powers"
 layout: single
 collection: talks
 type: talks
-title: "Binomial Coefficients are almost never powers"
-permalink: /talks/Binomial-Coefficients-are-almost-never-powers
+permalink: /talks/Binomial-Coefficients-are-almost-never-powers/
 date: 2016-01-11
 ---
 
