@@ -190,6 +190,13 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
+# Header menus
+# Collections
+collections:
+  talks:
+    output: true
+    permalink: /:collection/:path/
+
 
 # Sass/SCSS
 sass:
@@ -271,3 +278,11 @@ defaults:
       comments: true
       share: true
       related: true
+  # _talks
+  - scope:
+      path: ""
+      type: talks
+    values:
+      layout: talk
+      author_profile: true
+      share: true
