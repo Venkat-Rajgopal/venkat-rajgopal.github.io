@@ -33,13 +33,14 @@ One approach is to calculate a distance measure between the two distributions. T
 
 Although the KL divergence measures the distance between two distributions, it is not a distance measure. This is because that the KL divergence is **not a metric measure** and is non-symmetric. 
 
-## Non-Symmetric
+# Non-Symmetric
 Divergence is a scoring of how one distribution differs from another, where calculating the divergence for distributions $p(x)$ and $q(x)$ would give a different score from $q(x)$ and $p(x)$. Thus the KL from $p(x)$ to $q(x)$ is not the same as  $q(x)$ to $p(x)$. 
 
 A typical application of divergence is approximating a target probability distribution when optimizing a Generative Adversarial Networks. 
 
+--- 
 
-# Implementation
+# Python Implementation
 The below implementation in Python. The function retutns the divergence score between two normal distributions.  
 
 ```python
