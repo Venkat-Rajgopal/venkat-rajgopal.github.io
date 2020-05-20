@@ -54,7 +54,9 @@ The idea is to take the matrix $A$ and represent it as product of 3 matrices, $u
 
 - *$V$: Right Singular values*. $[n \times r]$ matrix where $n$ is the number of columns from the original matrix and $r$ we can think of as a small number basically the rank of the matrix $A$. 
 
-We can pictorically represent this as below <img src="http://venkat-rajgopal.github.io/plots/svd/matrix_decom.png" alt="eval" width="500"/>
+We can pictorically represent this as below
+<img src="http://venkat-rajgopal.github.io/plots/svd/matrix_decom.png" alt="eval" width="100"/>
+
 
 ## SVD Properties
 
@@ -212,7 +214,9 @@ Instead of calculating the SVD on our full matrix $A$ which is $[m \times n]$, w
 4\. Substituting back to $A$ we have, 
 
 $$A \approx Q Q^T A \\$$ 
+
 $$  = Q (S\,\Sigma V^T) \space \text{as} \space B = Q^T A \\$$ 
+
 $$  = U \Sigma V^T \space \text{if we construct} \space U = QS$$
 
 We now have a low rank approximation $A \approx U \Sigma V^T$.
