@@ -55,7 +55,8 @@ The idea is to take the matrix $A$ and represent it as product of 3 matrices, $u
 - *$V$: Right Singular values*. $[n \times r]$ matrix where $n$ is the number of columns from the original matrix and $r$ we can think of as a small number basically the rank of the matrix $A$. 
 
 We can pictorically represent this as below
-<img src="http://venkat-rajgopal.github.io/plots/svd/matrix_decom.png" alt="eval" width="100"/>
+
+Consider the Matrix user to movie <img src="http://venkat-rajgopal.github.io/plots/svd/matrix_decom.PNG" alt="eval" width="500"/>. 
 
 
 ## SVD Properties
@@ -67,14 +68,17 @@ The "SVD" theorem says that "It is always possible to decompose a real matrix $A
 - $S$ Entries in the singular values are positive and sorted in descreasing order. 
 
 ## Implementation
-Consider the Matrix user to movie <img src="http://venkat-rajgopal.github.io/plots/svd/movie_user.png" alt="eval" width="500"/>. 
+Consider the Matrix user to movie 
+
+<img src="http://venkat-rajgopal.github.io/plots/svd/movie_user.png" alt="eval" width="500"/>. 
 
 Lets think of this example as a movie review website.  Here each row represents user and the column represents different movie. 
 1 Being the lowest and 5 being the higest rating. 
 
 So a user say no.3 likes more of Scify moves as compared to War movies, hence the column 4 and 5 are 0. 
 
-Our goal here is to deompose this matrix into three components. Visually we can see that the users can be broken down into two groups as seen below. 
+Our goal here is to deompose this matrix into three components. Visually we can see that the users can be broken down into two groups as seen below.
+
 <img src="http://venkat-rajgopal.github.io/plots/svd/movie_user_grp.png" alt="eval" width="500"/>
 
 Let's demonstrate this with the standard scipy object `linalg` where svd is defined. 
