@@ -14,7 +14,7 @@ We will cover the following topics in this post.
 - [SVD Properties](#svd-properties)
 - [Python implementation](#implementation)
 - [SVD vs Fast-Ramdomised-SVD](#svd-vs-fast-ramdomised-svd)
-- [Need for Randomized Matrix Approximation](#Randomized-Matrix-Approximation)
+- [Why use Randomized Matrix Approximation](#randomized-matrix-approximation)
 - [Fast SVD Method](#method)
 - [Resources](#resources)
 
@@ -54,9 +54,9 @@ The idea is to take the matrix $A$ and represent it as product of 3 matrices, $u
 
 - *$V$: Right Singular values*. $[n \times r]$ matrix where $n$ is the number of columns from the original matrix and $r$ we can think of as a small number basically the rank of the matrix $A$. 
 
-We can pictorically represent this as below
+We can pictorically represent this as below. 
 
-Consider the Matrix user to movie <img src="http://venkat-rajgopal.github.io/plots/svd/matrix_decom.PNG" alt="eval" width="500"/>. 
+<img src="http://venkat-rajgopal.github.io/plots/svd/matrix_decom.PNG" alt="eval" width="650"/> 
 
 
 ## SVD Properties
@@ -68,9 +68,9 @@ The "SVD" theorem says that "It is always possible to decompose a real matrix $A
 - $S$ Entries in the singular values are positive and sorted in descreasing order. 
 
 ## Implementation
-Consider the Matrix user to movie 
+Consider the Matrix user to movie. 
 
-<img src="http://venkat-rajgopal.github.io/plots/svd/movie_user.png" alt="eval" width="500"/>. 
+<img src="http://venkat-rajgopal.github.io/plots/svd/movie_user.png" alt="eval" width="500"/>
 
 Lets think of this example as a movie review website.  Here each row represents user and the column represents different movie. 
 1 Being the lowest and 5 being the higest rating. 
@@ -274,8 +274,7 @@ Wall time: 11.1 s
 
 ---
 # Resources
-You can find the whole notebook for this at my [GitHub](https://github.com/Venkat-Rajgopal/Blog-post-codes/blob/master/SVD/singular_value_decomposition.ipynb). 
+You can find the whole notebook for this at my [GitHub](https://github.com/Venkat-Rajgopal/Blog-post-codes/blob/master/SVD/singular_value_decomposition.ipynb).
 
-- [Finding Structure with Randomness: Probabilistic Algorithms for Constructing Approximate Matrix Decompositions](https://arxiv.org/abs/0909.4061) is an excellent read. 
-
-- [FastAI Numerical Linear Algebra](https://www.fast.ai/2017/07/17/num-lin-alg/) 
+[1] [Finding Structure with Randomness: Probabilistic Algorithms for Constructing Approximate Matrix Decompositions](https://arxiv.org/abs/0909.4061) is an excellent read. <br/>
+[2] [FastAI Numerical Linear Algebra](https://www.fast.ai/2017/07/17/num-lin-alg/) 

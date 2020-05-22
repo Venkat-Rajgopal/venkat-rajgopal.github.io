@@ -8,18 +8,19 @@ tags: [optimizers, deeplearning]
 comments: true
 ---
 
+# Introduction
 The buzzword among the Deep Learning community is about the latest revision to Optimization algorithm **ADAM** published by Liyuan Liu known as the [Variance of Adaptive Learning](https://arxiv.org/pdf/1908.03265.pdf), **Rectified Adam**.  
 
 In this post we first talk about the difference and why the authors claim that **R-Adam** works better. Subsequently we implement this on CIFAR-10 using Keras. Note i am using the revised **Tensorflow 2.0** backed Keras, so you might have to tweak the code if you are on the older verion Tensorflow 1.14. 
 
-So lets directly dive into it. Heere is what we cover. 
-- [Adaptive Learning](#Adaptive-Learning)
-- [Adam](#Adam)
-- [R-Adam](#R-Adam)
-- [Training CIFAR-10 in Tensorflow 2.0](#Training-CIFAR-10-with-R-Adam-vs-Adam)
-- [Results](#Results)
+So let's directly dive into it. Here is what we cover. 
+- [Adaptive Learning](#adaptive-learning)
+- [Adam](#adam)
+- [R-Adam](#r-adam)
+- [Training CIFAR-10 in Tensorflow 2.0](#training-cifar-10-with-r-adam-vs-adam)
+- [Results](#results)
 
-# Adaptive Learning
+## Adaptive Learning
 We know the problem of setting different learning rates during training with SGD. Choosing the learning rate turns out to be a difficult hyper-parameter to set during training a network. The learning rate also significantly effects the model performance. SGD with momentum algorithm in a way address this problem, but it only comes with the cost of adding another hyperparameter. It thus made sense to use a separate learning rate for each parameter and automatically adapt it during the training phase. This led to the development of algorithms with the so called _adaptive learning rates_. 
 These can be studied as a family of three algorithms which are simple modifications of one another namely, 'AdaGrad', 'RMSProp', 'Adam'. 
 
@@ -30,7 +31,7 @@ Recall that,
 **'RMSProp'** also maintains per-parameter learning rates that are adapted based on the average of recent magnitudes of the gradients for the weight (e.g. how quickly it is changing). 
 
 
-# ADAM 
+## ADAM 
 "Adam" as the name goes derives from the concept of "adaptive moments". It applies the best of the both world’s, meaning, a combination of two methods 'RMSProp' and 'AdaGrad. The method computes individual adaptive learning rates for different parameters from estimates of first and second moments of the gradients. It can be described in two steps.
 
 **First:** Add momentum to RMSprop, which means adding momentum to rescaled gradients. It does this by computing the moments. The algorithm calculates an exponential moving average of the gradient and the squared gradient. The two parameters _rho1_ and _rho2_ control the *decay rates* of these moving averages. 
@@ -41,7 +42,7 @@ The algorithm is summarised below.
 ![](http://venkat-rajgopal.github.io/plots/R-adam/adam_algo.png)
 
 
-# R-Adam
+## R-Adam
 Adaptive learning has so far been very successful in benchmark datasets like CIFAR-10. However it comes with the pitfall of _larger variance_ in the early stage of training. 
 The authors of R-Adam suggests a **warmup heuristic** to tackle tis problem and works as a **variance reduction technique**. 
 
@@ -56,7 +57,7 @@ Below is the changes to Adam known as R-Adam.
 ![](http://venkat-rajgopal.github.io/plots/R-adam/radam_algo.png)
 
 
-# Training CIFAR-10 with R-Adam vs Adam
+## Training CIFAR-10 with R-Adam vs Adam
 I trained a CIFAR-10 from scratch to look for the change in performance. The network is a 3 layer CNN with Relu as activations. I use the below optimizer setting. 
 
 
@@ -96,7 +97,7 @@ def define_model(opt = opt):
 	return model
 ```
 
-# Results
+## Results
 
 As we see, the training progress with R-Adam is a lot stable as compared to Adam. 
 ![](http://venkat-rajgopal.github.io/plots/R-adam/adam.png)
@@ -111,6 +112,6 @@ The whole code for the project can be found at my [GitHub](https://github.com/Ve
 
 ----
 ## Sources 
-[1] Ian Goodfellow-et-al-2016 ["Deep Learning book"](http://www.deeplearningbook.org).  
-[2] Liyuan Liu ['On the Variance of the Adaptive Learning Rate and Beyond'](https://arxiv.org/pdf/1908.03265.pdf).
+[1] Ian Goodfellow-et-al-2016 ["Deep Learning book"](http://www.deeplearningbook.org). <br/>
+[2] Liyuan Liu ['On the Variance of the Adaptive Learning Rate and Beyond'](https://arxiv.org/pdf/1908.03265.pdf).<br/>
 [3] Adrian Rosebrock ['PyImageSearch'](https://www.pyimagesearch.com)
