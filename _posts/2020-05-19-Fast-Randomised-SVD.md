@@ -276,5 +276,5 @@ Wall time: 11.1 s
 # Resources
 You can find the whole notebook for this at my [GitHub](https://github.com/Venkat-Rajgopal/Blog-post-codes/blob/master/SVD/singular_value_decomposition.ipynb).
 
-[1] [Finding Structure with Randomness: Probabilistic Algorithms for Constructing Approximate Matrix Decompositions](https://arxiv.org/abs/0909.4061) is an excellent read. <br/>
+[1] [Finding Structure with Randomness: Probabilistic Algorithms for Constructing Approximate Matrix Decompositions](https://arxiv.org/abs/0909.4061) is an excellent read <br/>
 [2] [FastAI Numerical Linear Algebra](https://www.fast.ai/2017/07/17/num-lin-alg/) 
