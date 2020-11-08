@@ -17,7 +17,8 @@ minimal_mistakes_skin    :   "air"   # "contrast"  , "default" , "dirt" ,  ,"con
 # Site Settings
 locale                   : "en-US"
 title                    : "Random acts of Statistics"
-title_separator          : "-"
+title_separator          : "|"
+subtitle                 : "Explaining Statistical concepts one at a time"
 name                     : "Venkatramani Rajgopal"
 description              : "Statistics and Machine learning"
 url                      : "https://venkat-rajgopal.github.io"
