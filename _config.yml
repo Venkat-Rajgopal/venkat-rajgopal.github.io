@@ -104,7 +104,7 @@ analytics:
 author:
   name             : "Venkatramani Rajgopal"
 #  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  avatar           : "/images/IMG_0105.jpg"   #https://avatars.githubusercontent.com/venkat-rajgopal
+  avatar           : "/images/IMG_5366.jpg"   #https://avatars.githubusercontent.com/venkat-rajgopal
   bio              : "Statistics and Deep learning"
   location         : "Hamburg, Germany"
   email            : "venkatramani.r@gmail.com"
@@ -140,6 +140,7 @@ include:
   - .htaccess
   - _pages
   - files
+  - _readinglist
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -198,7 +199,12 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
-
+  readinglist:
+    output: true
+    permalink: /:collection/:path/
+  recipes:
+    output: true
+    permalink: /:collection/:path/
 
 # Sass/SCSS
 sass:
@@ -208,7 +214,7 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
+paginate: 10 # amount of posts to show
 paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
@@ -294,4 +300,29 @@ defaults:
     values:
       layout: talk
       author_profile: true
+      share: true
+  # _readinglist
+  - scope:
+      path: ""
+      type: readinglist
+    values:
+      layout: readinglist
+      author_profile: true
+      share: true
+  # _recipes
+  - scope:
+      path: ""
+      type: recipes
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+  # _portfolio
+  - scope:
+      path: ""
+      type: portfolio
+    values:
+      layout: single
+      author_profile: false
       share: true
