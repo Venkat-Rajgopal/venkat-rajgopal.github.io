@@ -14,10 +14,10 @@ I grew up in Mumbai, India where i had completed my undergrad in Statistics.
 Discovering new places on the bike and bouldering has been a nice get away. 
 
 <img src="{{ "http://venkat-rajgopal.github.io/images/woods.JPG" | absolute_url }}" 
-width="50%" hspace="20" align="right">
+width="30%" hspace="20" align="right">
 
-<img src="{{ "http://venkat-rajgopal.github.io/images/boulder.JPG" | absolute_url }}" 
-width="50%" hspace="20" align="left">
+<img src="{{ "http://venkat-rajgopal.github.io/images/boulder.PNG" | absolute_url }}" 
+width="30%" hspace="20" align="left">
 
 80's Thrash Metal has been a huge inluence on me. I am a huge admirer of some of the really talanted Indian Folk and Metal bands ([Indian Ocean](https://en.wikipedia.org/wiki/Indian_Ocean_(band)),  [Kryptos](https://en.wikipedia.org/wiki/Kryptos_(band))) who are largely unnoticed in India particularly because of lack of non-commercial musical knowledge. 
 
