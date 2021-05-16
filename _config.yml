@@ -104,7 +104,7 @@ analytics:
 author:
   name             : "Venkatramani Rajgopal"
 #  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  avatar           : "/images/IMG_5366.jpg"   #https://avatars.githubusercontent.com/venkat-rajgopal
+  avatar           : "/images/profile.jpg"   #https://avatars.githubusercontent.com/venkat-rajgopal
   bio              : "Statistics and Deep learning"
   location         : "Hamburg, Germany"
   email            : "venkatramani.r@gmail.com"

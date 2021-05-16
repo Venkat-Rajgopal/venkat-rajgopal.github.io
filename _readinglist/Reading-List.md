@@ -11,7 +11,8 @@ toc: true
 
 An excellent depection of dimentions into Euclid's world. From the old Green concepts of Parallel lines to hyperplanes. 
 <img src="{{ "http://venkat-rajgopal.github.io/images/IMG_1871.JPG" | absolute_url }}" 
-width="30%" hspace="20" align="right">
+width="30%" hspace="10" align="right">
+
 
 2. Math with Bad drawings
 
