@@ -5,6 +5,7 @@ collection: readinglist
 permalink: /readinglist/
 date: 2021-05-07
 toc: True
+toc_icon: "cog"
 ---
 <br/>
 # Math, Statistics and the stuff around it

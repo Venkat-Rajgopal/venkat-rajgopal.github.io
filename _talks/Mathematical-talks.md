@@ -4,7 +4,7 @@ collection: talks
 permalink: /talks/
 date: 2016-01-11
 ---
-Links to my Mathematics and Machine learning talks from the past. 
+Links to some of my Mathematics and Machine learning talks from the past. 
 
 ## "Binomial Coefficients are almost never powers"
 
