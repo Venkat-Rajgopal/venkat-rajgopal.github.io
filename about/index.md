@@ -19,7 +19,7 @@ width="30%" hspace="20" align="right">
 <img src="{{ "http://venkat-rajgopal.github.io/images/boulder.PNG" | absolute_url }}" 
 width="30%" hspace="20" align="left">
 
-80's Thrash Metal has been a huge inluence on me. I am a huge admirer of some of the really talanted Indian Folk and Metal bands ([Indian Ocean](https://en.wikipedia.org/wiki/Indian_Ocean_(band)),  [Kryptos](https://en.wikipedia.org/wiki/Kryptos_(band))) who are largely unnoticed. 
+80's Thrash Metal has been a huge inluence on me. I am a huge admirer of some of the really talanted Indian Folk and Metal bands ([Indian Ocean](https://en.wikipedia.org/wiki/Indian_Ocean_(band)),  [Kryptos](https://en.wikipedia.org/wiki/Kryptos_(band))). 
 
 Having brought up in India, it is normal to speak multiple languages. I speak 6 languages. Professionally i communicate in English and German. 
 
