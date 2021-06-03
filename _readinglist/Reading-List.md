@@ -23,7 +23,7 @@ Started my machine learning journey with this book. One of the best free books a
 
 # History
 1. [Jerusalem: The Biography - Simon Sebag Montefiore](https://en.wikipedia.org/wiki/Jerusalem:_The_Biography)\
-Jerusalem is the universal city, the shrine of three faiths. From King David to the 21st Century, from the birth Judaism, Christianity and Islam to the Isreal-Palestine conflict, Simon Sebag depicts a 3000 year conflict in the holy city . He writes about every conflict and every possible King who tried to rule in the city and how Jerusalem became Jerusalem. 
+Jerusalem is the universal city, the shrine of three faiths. From King David to the 21st Century, from the birth of Judaism, Christianity and Islam to the Isreal-Palestine conflict, Simon Sebag depicts a 3000 year conflict in the holy city . He writes about every conflict and every possible King who tried to rule in the city and how Jerusalem became Jerusalem. 
 
 
 
