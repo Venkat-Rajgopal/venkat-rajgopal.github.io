@@ -32,6 +32,9 @@ Jerusalem is the universal city, the shrine of three faiths. From King David to 
 Simple techniques that we all know but sometimes fail to implement. A sample and easy read. 
 
 
+# Climbing 
+1. [Alone on the Wall](http://www.alexhonnold.com/book) 
+Alex Honnold climbing thrills in Yousemite narrated by Late David Reberts. 
 
 ---
 *PS : Still a lot to add to the list. Digging my bookshelf one at a time* 
