@@ -33,11 +33,11 @@ Simple techniques that we all know but sometimes fail to implement. A sample and
 
 
 # Climbing 
-1. [Alone on the Wall](http://www.alexhonnold.com/book) 
+1. [Alone on the Wall](http://www.alexhonnold.com/book)\ 
 Alex Honnold climbing thrills in Yousemite narrated by Late David Reberts. 
 
-2. [The Push](http://www.tommycaldwell.com/)
-Tommy Cladwell writes about his ascent of El Capitan's Dawn Wall, A near death experience in Kyrgyzstan when they where taken hostage by Islamist rebels during a climbing adventure.\
+2. [The Push](http://www.tommycaldwell.com/)\
+Tommy Cladwell writes about his ascent of El Capitan's Dawn Wall, A near death experience in Kyrgyzstan when they where taken hostage by Islamist rebels during a climbing adventure.
 Tommy later loses his accidently sawed off his finger while building a platform. He later emerges to become a much stronger climber. 
 Probably one of the best book on a climbers journey of Endurance. 
 
