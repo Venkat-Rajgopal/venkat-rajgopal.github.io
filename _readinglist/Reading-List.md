@@ -33,7 +33,7 @@ Simple techniques that we all know but sometimes fail to implement. A sample and
 
 
 # Climbing 
-1. [Alone on the Wall](http://www.alexhonnold.com/book) \ 
+1. [Alone on the Wall](http://www.alexhonnold.com/book)\
 Alex Honnold's climbing thrills in Yousemite narrated by Late David Reberts. 
 
 2. [The Push](http://www.tommycaldwell.com/)\
