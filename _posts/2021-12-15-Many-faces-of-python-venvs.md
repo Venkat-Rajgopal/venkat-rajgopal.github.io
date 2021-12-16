@@ -1,8 +1,8 @@
 ---
 layout: single
 author_profile: true
-title: "Many Faces of Python's Virtual Environments"
-excerpt: "Looking at the multiple ways of setting up a venv"
+title: "Many facets of Python's Virtual Environments"
+excerpt: "Looking at the multiple ways of setting up a venv in Python"
 date: 2021-12-15
 tags: [python]
 comments: true
@@ -96,7 +96,9 @@ For all commands refer [conda cheat sheet](https://docs.conda.io/projects/conda/
 ---
 
 # Poetry
-<img src="http://venkat-rajgopal.github.io/plots/python_venv/poetry_isin.PNG" alt="eval" width="450"/> 
+This one is my personal favourite just becasue of its simplicity and how effective it is. 
+
+<img src="http://venkat-rajgopal.github.io/plots/python_venv/poetry_isin.png" alt="eval" width="450"/> 
 
 
 Install poetry with `curl`. 
@@ -105,12 +107,12 @@ Install poetry with `curl`.
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 ```
 
-If python not found, replace it with `python3`
+If python is not found, replace it with `python3`. This could happen if you are using `oh-my-zsh` shell.
 ```shell
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
 ```
 
-Initialise an environment. This automatically created `.toml` file in the directory with all packages. 
+Initialise an environment. This automatically creates a `.toml` file in the directory with all packages. 
 ```
 poetry init
 ```
@@ -123,15 +125,22 @@ poetry install
 poetry update
 ```
 
-Adding packages to your project ? Just do 
+Adding packages to your project? Just do 
 ```
 poetry add <package name>
 ```
 
+### Build
+Want to build the package as wheel? 
+```
+poetry build
+```
+and you are good to go. 
+
 
 ### Pro Tip
 1. *Do not install from `pip`. Always use the `curl` method as above. 
-2. Poetry install envs in your `.cache/` directory. This below will install in your working directory
+2. Poetry installs envs in your `.cache/` directory. This below command will install in your working directory if thats the way you work. 
 
 ```
 poetry config virtualenvs.in-project true
