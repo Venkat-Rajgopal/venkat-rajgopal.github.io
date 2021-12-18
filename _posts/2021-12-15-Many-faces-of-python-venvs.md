@@ -4,7 +4,8 @@ author_profile: true
 title: "Many facets of Python's Virtual Environments"
 excerpt: "Looking at the multiple ways of setting up a venv in Python"
 date: 2021-12-15
-tags: [python]
+categories:
+  - python
 comments: true
 ---
 This XKCD artwork is quite well know now. 
