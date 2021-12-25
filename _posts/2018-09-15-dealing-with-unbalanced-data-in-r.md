@@ -1,10 +1,12 @@
 ---
-layout: single
-author_profile: true
 title: "Dealing with an unbalanced dataset"
+mathjax: true
 excerpt: "Sampling techniques to overcome the problem of an unbalanced dataset during classification"
 date: 2018-09-15
-tags: [r, unbalanced-data]
+categories:
+  - blog
+tags:
+  - [r, unbalanced-data]
 comments: true
 ---
 
@@ -46,8 +48,12 @@ ggplot(data = df, aes(x=df$cell_size, y=df$cell_shape, color=classes))+
 
 ```
 
-![](http://venkat-rajgopal.github.io/plots/smote/class_imbalance.png)
+<!-- ![](http://venkat-rajgopal.github.io/plots/smote/class_imbalance.png) -->
 
+<figure>
+	<img src="/assets/images/2018-09-15-dealing-with-unbalanced-data-in-r_files/class_imbalance.png">
+	<figcaption>Figure 1: Class imbalances</figcaption>
+</figure>
 
 Looking at the class labels in the data set shows the imbalance in both the classes. 
 

@@ -1,10 +1,12 @@
 ---
-layout: single
-author_profile: true
 title: "A moment to understand `argmax()` function"
 excerpt: "A short post about understand how final predictions are computed"
+mathjax: true
 date: 2018-09-22
-tags: [python, argmax]
+categories:
+  - blog
+tags: 
+  - [python, argmax]
 comments: true
 ---
 

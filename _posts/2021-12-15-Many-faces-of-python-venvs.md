@@ -1,16 +1,16 @@
 ---
-layout: single
-author_profile: true
 title: "Many facets of Python's Virtual Environments"
 excerpt: "Looking at the multiple ways of setting up a venv in Python"
 date: 2021-12-15
 categories:
   - python
+tags:
+  - [python]
 comments: true
 ---
 This XKCD artwork is quite well know now. 
 
-<img src="http://venkat-rajgopal.github.io/plots/python_venv/python_environment.png" alt="eval" width="650"/> 
+<img src="/assets/images/2021-12-15-Many-faces-of-python-venvs_files/python_environment.png" alt="eval" width="650"/> 
 
 However if you set up things right, its not a mess at all rather a charm to work with. We will see how easy is it with setting up environments. 
 
@@ -99,7 +99,7 @@ For all commands refer [conda cheat sheet](https://docs.conda.io/projects/conda/
 # Poetry
 This one is my personal favourite just becasue of its simplicity and how effective it is. 
 
-<img src="http://venkat-rajgopal.github.io/plots/python_venv/poetry_isin.png" alt="eval" width="450"/> 
+<img src="/assets/images/2021-12-15-Many-faces-of-python-venvs_files/poetry_isin.png" alt="eval" width="450"/> 
 
 
 Install poetry with `curl`. 
