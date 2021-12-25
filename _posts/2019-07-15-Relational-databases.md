@@ -3,7 +3,7 @@ title: "Relational Databases"
 excerpt: "Quering a relational database."
 date: 2019-07-08
 categories:
-  - blog
+  - SQL
 tags: 
  - [RDBMS]
 comments: true

@@ -3,7 +3,7 @@ title: "Essential SQL"
 excerpt: "Curating some common and essential SQL queries."
 date: 2018-10-13
 categories:
-  - blog
+  - SQL
 tags: 
  - [SQL]
 comments: true
