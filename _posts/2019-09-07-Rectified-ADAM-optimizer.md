@@ -3,7 +3,7 @@ title: "Rectified ADAM Optimizer"
 excerpt: "Comparison between R-Adam vs Traditional Adam optimizer"
 mathjax: true
 categories:
-  - blog
+  - machine-learning
 date: 2019-09-07
 tags:
   - [optimizers, deeplearning]

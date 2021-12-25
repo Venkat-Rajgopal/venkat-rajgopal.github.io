@@ -3,7 +3,7 @@ title: "Randomised approach to matrix decomposition: Fast SVD"
 excerpt: "An in-depth approach to Faster Singular value decomposition"
 mathjax: true
 categories:
-  - blog
+  - Statistics
 date: 2020-05-19
 tags: 
   - [nlp, topic modelling]

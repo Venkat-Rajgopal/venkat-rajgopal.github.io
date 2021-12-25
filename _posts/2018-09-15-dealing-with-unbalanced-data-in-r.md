@@ -4,7 +4,7 @@ mathjax: true
 excerpt: "Sampling techniques to overcome the problem of an unbalanced dataset during classification"
 date: 2018-09-15
 categories:
-  - blog
+  - machine-learning
 tags:
   - [r, unbalanced-data]
 comments: true

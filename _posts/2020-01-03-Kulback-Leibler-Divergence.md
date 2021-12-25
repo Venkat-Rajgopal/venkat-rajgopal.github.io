@@ -4,7 +4,7 @@ excerpt: "KL Divergence explained"
 mathjax: true
 date: 2020-01-03
 categories:
-  - blog
+  - Statistics
 tags: 
   - [statistics, lossfunction]
 comments: true
