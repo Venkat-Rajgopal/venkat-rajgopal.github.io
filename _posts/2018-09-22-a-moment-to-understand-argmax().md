@@ -4,7 +4,7 @@ excerpt: "A short post about understand how final predictions are computed"
 mathjax: true
 date: 2018-09-22
 categories:
-  - machine-learning
+  - Machine-Learning
 tags: 
   - [python, argmax]
 comments: true
