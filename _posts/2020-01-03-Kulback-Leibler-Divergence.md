@@ -1,10 +1,12 @@
 ---
-layout: single
-author_profile: true
 title: "Kulback Leibler Divergence"
 excerpt: "KL Divergence explained"
+mathjax: true
 date: 2020-01-03
-tags: [statistics, lossfunction]
+categories:
+  - Statistics
+tags: 
+  - [statistics, lossfunction]
 comments: true
 ---
 # Introduction
@@ -62,4 +64,9 @@ def kl_divergence(p, q):
     return prob
 ```
 
-![](http://venkat-rajgopal.github.io/plots/kl_divergence/kl_divergence.png)
+<!-- ![](http://venkat-rajgopal.github.io/plots/kl_divergence/kl_divergence.png) -->
+
+<figure>
+	<img src="/assets/images/2020-01-03-Kulback-Leibler-Divergence_files/kl_divergence.png">
+	<figcaption>Figure 1: Kl Divergence</figcaption>
+</figure>

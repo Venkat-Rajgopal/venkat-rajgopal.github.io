@@ -1,10 +1,11 @@
 ---
-layout: single
-author_profile: true
 title: "Relational Databases"
 excerpt: "Quering a relational database."
 date: 2019-07-08
-tags: [RDBMS]
+categories:
+  - SQL
+tags: 
+ - [RDBMS]
 comments: true
 ---
 

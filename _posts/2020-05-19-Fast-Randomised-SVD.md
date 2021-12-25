@@ -1,10 +1,12 @@
 ---
-layout: single
-author_profile: true
 title: "Randomised approach to matrix decomposition: Fast SVD"
 excerpt: "An in-depth approach to Faster Singular value decomposition"
+mathjax: true
+categories:
+  - Statistics
 date: 2020-05-19
-tags: [nlp, topic modelling]
+tags: 
+  - [nlp, topic modelling]
 comments: true
 ---
 We will cover the following topics in this post. 
@@ -56,7 +58,7 @@ The idea is to take the matrix $A$ and represent it as product of 3 matrices, $u
 
 We can pictorically represent this as below. 
 
-<img src="http://venkat-rajgopal.github.io/plots/svd/matrix_decom.PNG" alt="eval" width="650"/> 
+<img src="/assets/images/2020-05-19-Fast-Randomised-SVD_files/matrix_decom.PNG" alt="eval" width="650"/> 
 
 
 ## SVD Properties
@@ -70,7 +72,7 @@ The "SVD" theorem says that "It is always possible to decompose a real matrix $A
 ## Implementation
 Consider the Matrix user to movie. 
 
-<img src="http://venkat-rajgopal.github.io/plots/svd/movie_user.png" alt="eval" width="500"/>
+<img src="/assets/images/2020-05-19-Fast-Randomised-SVD_files/movie_user.png" alt="eval" width="500"/>
 
 Lets think of this example as a movie review website.  Here each row represents user and the column represents different movie. 
 1 Being the lowest and 5 being the higest rating. 
@@ -79,7 +81,7 @@ So a user say no.3 likes more of Scify moves as compared to War movies, hence th
 
 Our goal here is to deompose this matrix into three components. Visually we can see that the users can be broken down into two groups as seen below.
 
-<img src="http://venkat-rajgopal.github.io/plots/svd/movie_user_grp.png" alt="eval" width="500"/>
+<img src="/assets/images/2020-05-19-Fast-Randomised-SVD_files/movie_user_grp.png" alt="eval" width="500"/>
 
 Let's demonstrate this with the standard scipy object `linalg` where svd is defined. 
 

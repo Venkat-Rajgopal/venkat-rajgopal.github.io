@@ -1,5 +1,2 @@
-
-This repo is for my [blog page](https://venkat-rajgopal.github.io) built with Jekyll
-
-
-
+# blog
+Blog page in testing

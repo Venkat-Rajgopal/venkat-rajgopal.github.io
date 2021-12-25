@@ -1,10 +1,12 @@
 ---
-layout: single
-author_profile: true
 title: "Rectified ADAM Optimizer"
 excerpt: "Comparison between R-Adam vs Traditional Adam optimizer"
+mathjax: true
+categories:
+  - Machine-Learning
 date: 2019-09-07
-tags: [optimizers, deeplearning]
+tags:
+  - [optimizers, deeplearning]
 comments: true
 ---
 
@@ -39,7 +41,12 @@ Recall that,
 **Second:** It was observed that the moment estimnates are biased towards 0, especially when the decay rates are small (or close to 1). These biases are corrected by computing the first and second moment estimates. 
 
 The algorithm is summarised below. 
-![](http://venkat-rajgopal.github.io/plots/R-adam/adam_algo.png)
+
+<figure>
+	<img src="/assets/images/2019-09-07-Rectified-ADAM-optimizer_files/adam_algo.png">
+	<figcaption>Figure 1: Adam Algorithm</figcaption>
+</figure>
+
 
 
 ## R-Adam
@@ -54,8 +61,12 @@ The authors suggest the following to rectify this.
 
 Below is the changes to Adam known as R-Adam. 
 
-![](http://venkat-rajgopal.github.io/plots/R-adam/radam_algo.png)
+<!-- ![](http://venkat-rajgopal.github.io/plots/R-adam/radam_algo.png) -->
 
+<figure>
+	<img src="/assets/images/2019-09-07-Rectified-ADAM-optimizer_files/radam_algo.png">
+	<figcaption>Figure 2: R Adam Algorithm</figcaption>
+</figure>
 
 ## Training CIFAR-10 with R-Adam vs Adam
 I trained a CIFAR-10 from scratch to look for the change in performance. The network is a 3 layer CNN with Relu as activations. I use the below optimizer setting. 
@@ -100,12 +111,21 @@ def define_model(opt = opt):
 ## Results
 
 As we see, the training progress with R-Adam is a lot stable as compared to Adam. 
-![](http://venkat-rajgopal.github.io/plots/R-adam/adam.png)
+<!-- ![](http://venkat-rajgopal.github.io/plots/R-adam/adam.png) -->
+
+<figure>
+	<img src="/assets/images/2019-09-07-Rectified-ADAM-optimizer_files/adam.png">
+	<figcaption>Figure 3: Training with Adam Algorithm</figcaption>
+</figure>
 
 We however see a a lower accuracy with R-Adam as compared to Adam, with all other parameter setting remaining constant. 
 
-![](http://venkat-rajgopal.github.io/plots/R-adam/radam.png)
+<!-- ![](http://venkat-rajgopal.github.io/plots/R-adam/radam.png) -->
 
+<figure>
+	<img src="/assets/images/2019-09-07-Rectified-ADAM-optimizer_files/radam.png">
+	<figcaption>Figure 4: Training with RAdam Algorithm</figcaption>
+</figure>
 
 The whole code for the project can be found at my [GitHub](https://github.com/Venkat-Rajgopal/Blog-post-codes/tree/master/). 
 

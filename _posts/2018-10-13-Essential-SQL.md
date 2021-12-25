@@ -1,10 +1,11 @@
 ---
-layout: single
-author_profile: true
 title: "Essential SQL"
 excerpt: "Curating some common and essential SQL queries."
 date: 2018-10-13
-tags: [SQL]
+categories:
+  - SQL
+tags: 
+ - [SQL]
 comments: true
 ---
 
