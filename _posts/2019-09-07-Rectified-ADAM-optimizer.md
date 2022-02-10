@@ -5,8 +5,8 @@ mathjax: true
 categories:
   - Machine-Learning
 date: 2019-09-07
-tags:
-  - [optimizers, deeplearning]
+#tags:
+#  - [optimizers, deeplearning]
 comments: true
 ---
 

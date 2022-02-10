@@ -5,8 +5,8 @@ mathjax: true
 date: 2018-09-22
 categories:
   - Machine-Learning
-tags: 
-  - [python, argmax]
+#tags: 
+#  - [python, argmax]
 comments: true
 ---
 

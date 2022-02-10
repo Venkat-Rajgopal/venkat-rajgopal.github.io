@@ -5,8 +5,8 @@ mathjax: true
 date: 2020-01-03
 categories:
   - Statistics
-tags: 
-  - [statistics, lossfunction]
+#tags: 
+#  - [statistics, lossfunction]
 comments: true
 ---
 # Introduction

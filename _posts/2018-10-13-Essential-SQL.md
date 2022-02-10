@@ -4,8 +4,8 @@ excerpt: "Curating some common and essential SQL queries."
 date: 2018-10-13
 categories:
   - SQL
-tags: 
- - [SQL]
+#tags: 
+# - [SQL]
 comments: true
 ---
 

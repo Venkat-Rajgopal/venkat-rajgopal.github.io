@@ -4,8 +4,8 @@ excerpt: "Looking at the multiple ways of setting up a venv in Python"
 date: 2021-12-15
 categories:
   - python
-tags:
-  - [python]
+#tags:
+#  - [python]
 comments: true
 ---
 This XKCD artwork is quite well know now. 

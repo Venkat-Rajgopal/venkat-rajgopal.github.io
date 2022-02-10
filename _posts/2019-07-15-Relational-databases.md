@@ -4,8 +4,8 @@ excerpt: "Quering a relational database."
 date: 2019-07-08
 categories:
   - SQL
-tags: 
- - [RDBMS]
+#tags: 
+# - [RDBMS]
 comments: true
 ---
 

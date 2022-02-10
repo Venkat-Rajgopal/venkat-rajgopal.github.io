@@ -5,8 +5,8 @@ excerpt: "Sampling techniques to overcome the problem of an unbalanced dataset d
 date: 2018-09-15
 categories:
   - Machine-Learning
-tags:
-  - [r, unbalanced-data]
+#tags:
+#  - [r, unbalanced-data]
 comments: true
 ---
 
