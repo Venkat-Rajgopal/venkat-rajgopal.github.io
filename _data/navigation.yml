@@ -9,6 +9,6 @@ main:
     url: /talks/
   - title: "Reading List"
     url: /reading-list/  
-  - title: "Tags"
-    url: /tags/
+  # - title: "Tags"
+  #   url: /tags/
   
