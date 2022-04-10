@@ -12,7 +12,7 @@ Web Apps are the best way to showcase multiple analytical results of a project i
 
 In this example we show how we can easily deploy streamlit apps to azure cloud. This post is not about how to build a Streamlit app but the deployment of it. The artitechture looks something like this. 
 
-<img src="/assets/images/app_service.png" alt="eval" width="650"/>
+<img src="/assets/images/app_serving.png" alt="eval" width="650"/>
 
 ## Running the app in Docker 
 Foremost, to deploy the app you need the push all the dependencies and pack it into a Container. 
