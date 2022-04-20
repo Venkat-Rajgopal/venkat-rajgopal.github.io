@@ -44,7 +44,7 @@ Probably one of the best book on a climbers journey of Endurance.
 Some German languages which i found an easy read. 
 
 1. [Fast genial](https://www.diogenes.ch/leser/titel/benedict-wells/fast-genial-9783257241983.html)\
-Ich finde die Diogenes von [Benedict Wells](https://en.wikipedia.org/wiki/Benedict_Wells) ganz einfach und leicht zu lesen. In diesem Roman schreib er die Geschichte über einem mittellosen Jungen, der versucht sein unbekannter Vater zu finden. 
+Ich finde die Diogenes von [Benedict Wells](https://en.wikipedia.org/wiki/Benedict_Wells) ganz einfach und leicht zu lesen. In diesem Roman schreibt er die Geschichte über einem mittellosen Jungen, der versucht sein unbekannter Vater zu finden. 
 
 ---
 *PS : Still a lot to add to the list. Digging my bookshelf one at a time* 

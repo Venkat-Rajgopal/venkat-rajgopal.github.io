@@ -84,4 +84,4 @@ Create the web app by calling the contianer registry's image url.
 az webapp create -g <resource_group_name> -p <serviceplanname> -n <custom_url> -i nlpapp.azurecr.io/<image_name>:latest
 ```
 
-Your app will be available at http://<custom_url>.azurewebsites.net/. 
+Your app will be available at `http://<custom_url>.azurewebsites.net/`. 
