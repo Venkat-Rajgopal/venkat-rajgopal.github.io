@@ -20,7 +20,7 @@ Foremost, to deploy the app you need the push all the dependencies and pack it i
 The `Dockerfile` looks something like this. 
 
 
-```bash
+```shell
 FROM python:3.9
 USER root
 
@@ -44,9 +44,9 @@ Next we create a working directory where all the app source code will live. This
 
 The app needs a port to be exposed so we specify that as `EXPOSE 8501`. You could any port as long as it is not used in any other running container. 
 
-
 Streamlit credentials. This is optional. I didnt see any particular use of this. But be sure to check out Streamlit's documentation. 
-```
+
+```shell
 RUN mkdir ~/.streamlit
 RUN cp config.toml ~/.streamlit/config.toml
 RUN cp credentials.toml ~/.streamlit/credentials.toml
@@ -54,7 +54,7 @@ RUN cp credentials.toml ~/.streamlit/credentials.toml
 
 Test the Container locally. 
 
-```
+```shell
 # build
 docker build -t <> . 
 # alternatively run with `--no-cache` to build from scratch. 
@@ -69,18 +69,19 @@ Azure app service will pick up the container form Azure container registry and r
 
 App service however requires an App service plan in place. So lets create the app service plan form the azure CLI. This will create a linux machine in the specified location. An App Service plan defines a set of compute resources for a web app to run. Check [here](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans) for more information. 
 
-```
+```shell
 az appservice plan create -g <resource_group_name> -n <serviceplanname> -l <location> --is-linux --sku B1
 ```
 
 Now build the container in azure registry. 
-```
+
+```shell
 az acr build --registry <registry_name> --resource-group <resource_group_name> --image <image_name> .
 ```
 
 Create the web app by calling the contianer registry's image url. 
 
-```
+```shell
 az webapp create -g <resource_group_name> -p <serviceplanname> -n <custom_url> -i nlpapp.azurecr.io/<image_name>:latest
 ```
 
