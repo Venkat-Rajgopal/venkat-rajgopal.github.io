@@ -11,3 +11,12 @@ Change font sizes in `assets/css/main.scss`.
 bundle exec jekyll serve
 ```
 
+# Build in a container 
+```shell
+docker run --rm --volume="$PWD:/srv/jekyll" -p 4000:4000 jekyll/jekyll:4.0 jekyll serve
+```
+
+Or simply use `docker-compose` as;
+```shell
+docker-compose up
+```

@@ -27,6 +27,10 @@ words_per_minute: 200
 search: true
 search_full_content: true
 
+
+port : 4000
+host: "0.0.0.0"
+
 # twitter_username: username
 github_username: venkat-rajgopal
 
