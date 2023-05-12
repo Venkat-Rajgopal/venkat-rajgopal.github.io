@@ -74,7 +74,7 @@ plugins:
 
 author:
   name: "Venkatramani Rajgopal"
-  avatar: "/assets/images/profile_pic.jpg"
+  avatar: "/assets/images/avatar.png"
   bio: "Data Science, Engineering, Software development."
   location: "Hamburg, Germany"
   links:
