@@ -7,7 +7,7 @@ author_profile: true
 
 :pray: 
 
-I am a Full Stack Data Scientist based out of Hamburg, Germany. I grew up in Mumbai, India where i had completed my undergrad in Statistics.
+I am a Full Stack Data Scientist developing IOT based solutions for [Zeppelin](https://www.zeppelin.com/de-en/powersystems/) in Hamburg, Germany. I grew up in Mumbai, India where i had completed my undergrad in Statistics.
 
 I graduated in "Applied Mathematics" where in my master thesis *"Deep learning based classification of liquids using ultrasound sensor system data"* i worked on applying Deep Learning methods to classify liquid patterns. I continued my work with Ultrasound Signals and Brain pattern recognition @ [Sonovum - Leipzig](https://www.sonovum.de/). 
 
