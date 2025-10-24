@@ -7,7 +7,7 @@ slug: managing-packages-with-poetry
 featured: true
 draft: false
 tags:
-  - python 🍛
+  - python 🐍
 description:
   Efficiently hosting py projects across an organisation
 ---
