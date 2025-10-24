@@ -60,17 +60,16 @@ The idea is to take the matrix $A$ and represent it as product of 3 matrices, $u
 
 We can pictorically represent this as below. 
 
-![Figure 1: Matrix Decomposition](@/assets/blog_resources/fast_svd/matrix_decom.PNG)  
-*Figure 1: Matrix Decomposition - Visual representation of SVD decomposition into U, S, and V matrices.* 
-
+![Figure 1: Matrix Decomposition](@/assets/blog_resources/fast_svd/matrix_decom.png)  
+*Figure 1: Matrix Decomposition - Visual representation of SVD decomposition into U, S, and V matrices.*
 
 ## SVD Properties
 
-The "SVD" theorem says that "It is always possible to decompose a real matrix $A$ into $A = USV^T$ where, 
+The "SVD" theorem says that "It is always possible to decompose a real matrix $A$ into $A = USV^T$ where,
 
 - $U$, $S$, $V$ are unique.
-- $U$ and $V$ are *column orthonomal* i.e $U^T U = I$, $V^T V = I$ $I$ : Identity matrix. 
-- $S$ Entries in the singular values are positive and sorted in descreasing order. 
+- $U$ and $V$ are *column orthonormal* i.e $U^T U = I$, $V^T V = I$ $I$ : Identity matrix.
+- $S$ Entries in the singular values are positive and sorted in decreasing order.
 
 ## Implementation
 
@@ -79,8 +78,8 @@ Consider the Matrix user to movie.
 ![Figure 2: Movie User Matrix](@/assets/blog_resources/fast_svd/movie_user.png)  
 *Figure 2: Movie User Matrix - Example of user-movie rating matrix used for SVD demonstration.*
 
-Lets think of this example as a movie review website.  Here each row represents user and the column represents different movie. 
-1 Being the lowest and 5 being the higest rating. 
+Lets think of this example as a movie review website.  Here each row represents user and the column represents different movie.
+1 Being the lowest and 5 being the highest rating.
 
 So a user say no.3 likes more of Scify moves as compared to War movies, hence the column 4 and 5 are 0. 
 
@@ -89,7 +88,7 @@ Our goal here is to deompose this matrix into three components. Visually we can 
 ![Figure 3: Movie User Groups](@/assets/blog_resources/fast_svd/movie_user_grp.png)  
 *Figure 3: Movie User Groups - Visual representation of users grouped by movie preferences (SciFi vs War movies).*
 
-Let's demonstrate this with the standard scipy object `linalg` where svd is defined. 
+Let's demonstrate this with the standard scipy object `linalg` where svd is defined.
 
 ```python
 from sklearn.datasets import fetch_20newsgroups
@@ -114,7 +113,8 @@ Shape of original matrix: (7, 5)
 ```
 Strength of the scifi concept. Here we see that the strength of the scify concept is more than the "War movie" concept.
 
-Take a look at the diagonal matrix. 
+Take a look at the diagonal matrix.
+
 ```python
 > np.round(np.diag(s), 3)
 
@@ -125,9 +125,10 @@ array([[12.481,  0.   ,  0.   ,  0.   ,  0.   ],
        [ 0.   ,  0.   ,  0.   ,  0.   ,  0.   ]])
 ```
 
-**User to concept** matrix. 
+**User to concept** matrix.
 
-Matix $U$ we see that the first four users belong to more of SciFy concepy. 
+Matrix $U$ we see that the first four users belong to more of SciFy concept.
+
 ```python
 array([[-0.14, -0.02, -0.01,  0.56, -0.38],
        [-0.41, -0.07, -0.03,  0.21,  0.76],
@@ -205,7 +206,7 @@ Instead of calculating the SVD on our full matrix $A$ which is $[m \times n]$, w
 
 **Note:**  This is just a method with a smaller matrix!!
 
-1\. Compute an approximation to the range of $A$. That is, we want $Q$ with $r$ orthonormal columns such that $A \approx QQ^TA$. See `randomized_range_finder()` below. 
+1\. Compute an approximation to the range of $A$. That is, we want $Q$ with $r$ orthonormal columns such that $A \approx QQ^TA$. See `randomized_range_finder()` below.
 
 2\. Construct $B = Q^T A$, which is small ($r\times n$)
 
@@ -231,9 +232,7 @@ Now, we take the QR decomposition of $A\Omega = QR$, then the columns of $Q$ for
 
 Since the matrix $A\Omega$ of the product has far more rows than columns and therefore, approximately, orthonormal columns. This is simple probability - with lots of rows, and few columns, it's unlikely that the columns are linearly dependent.
 
-
 Lets do this in Python. The method below `randomized_range_finder` finds an orthonormal matrix whose range approximates the range of $A$ (discussed in step 1 above). This is done using the [scikit-learn.extmath.randomized_svd source code](https://github.com/scikit-learn/scikit-learn/blob/14031f65d144e3966113d3daec836e443c6d7a5b/sklearn/utils/extmath.py).
-
 
 ```python
 def randomized_range_finder(A, size, n_iter=5):
@@ -268,7 +267,7 @@ def randomized_svd(M, n_components, n_oversamples=10, n_iter=4):
 ```python
 u, s, v = randomized_svd(vectors, n_components=10)
 
-Wall time: 11.1 s
+>> Wall time: 11.1 s
 ```
 
 ---
