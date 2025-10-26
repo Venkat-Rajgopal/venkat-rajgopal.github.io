@@ -91,7 +91,8 @@
     }
   }
 
-  /* Katex text color */
+  /* Katex text color for both inline and display math */
+  .prose .katex,
   .prose .katex-display {
     @apply text-foreground;
   }

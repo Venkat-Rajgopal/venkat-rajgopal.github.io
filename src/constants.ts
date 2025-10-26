@@ -18,15 +18,9 @@ interface Social {
 
 export const SOCIALS: Social[] = [
   {
-<<<<<<< HEAD
     name: "Github",
     href: "https://github.com/Venkat-Rajgopal/",
     linkTitle: ` ${SITE.title} on Github`,
-=======
-    name: "GitHub",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: `${SITE.title} on GitHub`,
->>>>>>> upstream/main
     icon: IconGitHub,
   },
   {

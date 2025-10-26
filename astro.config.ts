@@ -3,17 +3,14 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
-<<<<<<< HEAD
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-=======
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
   transformerNotationWordHighlight,
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
->>>>>>> upstream/main
 import { SITE } from "./src/config";
 
 // https://astro.build/config
@@ -54,18 +51,6 @@ export default defineConfig({
       exclude: ["@resvg/resvg-js"],
     },
   },
-  image: {
-<<<<<<< HEAD
-    // Used for all Markdown images; not configurable per-image
-    // Used for all `<Image />` and `<Picture />` components unless overridden with a prop
-    experimentalLayout: "constrained",
-  },
-  experimental: {
-    responsiveImages: true,
-=======
-    responsiveStyles: true,
-    layout: "constrained",
-  },
   env: {
     schema: {
       PUBLIC_GOOGLE_SITE_VERIFICATION: envField.string({
@@ -76,7 +61,6 @@ export default defineConfig({
     },
   },
   experimental: {
->>>>>>> upstream/main
     preserveScriptOrder: true,
   },
 });
