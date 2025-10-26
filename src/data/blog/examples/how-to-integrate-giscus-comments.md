@@ -29,9 +29,9 @@ The approach is serverless, as the comments are stored on _GitHub_ and dynamical
 
 _Giscus_ can be set up easily on [giscus.app](https://giscus.app/), but I will outline the process shortly still.
 
-### Prequisites
+### Prerequisites
 
-Prequisites to get _Giscus_ working are
+Prerequisites to get _Giscus_ working are
 
 - the repository is [public](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility#making-a-repository-public)
 - the [Giscus app](https://github.com/apps/giscus) is installed
@@ -75,20 +75,20 @@ You should now have a script tag that looks like this:
 ></script>
 ```
 
-Simply add that to the source code of the site. Most likely, if you're using _AstroPaper_ and want to enable comments on posts, navigate to `src/layouts/PostDetails.astro` and paste it into the desired location where you want the comments to appear, perhaps underneath the `Share this post on:` buttons.
+Simply add that to the source code of the site. Most likely, if you're using _AstroPaper_ and want to enable comments on posts, navigate to `PostDetails.astro` and paste it into the desired location where you want the comments to appear, perhaps underneath the `Share this post on:` buttons.
 
-```diff
-      <ShareLinks />
-    </div>
+```astro file=src/layouts/PostDetails.astro
+<Layout {...layoutProps}>
+  <main>
+    <ShareLinks />
 
-+    <script src="https://giscus.app/client.js"
-+        data-repo="[ENTER REPO HERE]"
-+        data-repo-id="[ENTER REPO ID HERE]"
-+        data-category="[ENTER CATEGORY NAME HERE]"
-+        data-category-id="[ENTER CATEGORY ID HERE]"
-+        ...
-+    </script>
-
+    <!-- [!code ++:6] -->
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="[ENTER REPO HERE]"
+      data-repo-id="[ENTER REPO ID HERE]"
+      data-category="[ENTER CATEGORY NAME HERE]"
+      data-category-id="[ENTER CATEGORY ID HERE]"></script>
   </main>
   <Footer />
 </Layout>
@@ -108,7 +108,7 @@ npm i @giscus/react && npx astro add react
 
 Then we create a new `Comments.tsx` React component in `src/components`:
 
-```tsx
+```tsx file=src/components/Comments.tsx
 import Giscus, { type Theme } from "@giscus/react";
 import { GISCUS } from "@/constants";
 import { useEffect, useState } from "react";
@@ -164,9 +164,9 @@ export default function Comments({
 
 This _React_ component not only wraps the native _Giscus_ component, but also introduces additional props, namely `lightTheme` and `darkTheme`. Leveraging two event listeners, the _Giscus_ comments will align with the site's theme, dynamically switching between dark and light themes whenever the site or browser theme is changed.
 
-We also need to define the `GISCUS` config, for which the optimal location is in `src/constants.ts`:
+We also need to define the `GISCUS` config, for which the optimal location is in `constants.ts`:
 
-```ts
+```ts file=src/constants.ts
 import type { GiscusProps } from "@giscus/react";
 
 ...
@@ -187,21 +187,20 @@ export const GISCUS: GiscusProps = {
 
 Note that specifying a `theme` here will override the `lightTheme` and `darkTheme` props, resulting in a static theme setting, similar to the previous approach of embedding _Giscus_ with the `<script>` tag.
 
-To complete the process, add the new Comments component to `src/layouts/PostDetails.astro` (replacing the `script` tag from the previous step).
+To complete the process, add the new Comments component to `PostDetails.astro` (replacing the `script` tag from the previous step).
 
-```diff
-+ import Comments from "@/components/Comments";
+```jsx file=src/layouts/PostDetails.astro
+// [!code ++:1]
+import Comments from "@/components/Comments";
 
-      <ShareLinks />
-    </div>
+<ShareLinks />
 
-+   <Comments client:only="react" />
+// [!code ++:1]
+<Comments client:only="react" />
 
-    <hr class="my-6 border-dashed" />
+<hr class="my-6 border-dashed" />
 
-  </main>
-  <Footer />
-</Layout>
+<Footer />
 ```
 
 And that's it!

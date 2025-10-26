@@ -22,8 +22,7 @@ The important configurations resides in `src/config.ts` file. Within that file, 
 
 During development, it's okay to leave `SITE.website` empty. But in production mode, you should specify your deployed url in `SITE.website` option since this will be used for canonical URL, social card URL etc.. which are important for SEO.
 
-```js
-// file: src/config.ts
+```js file=src/config.ts
 export const SITE = {
   website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
   author: "Sat Naing",
@@ -43,6 +42,7 @@ export const SITE = {
     url: "https://github.com/satnaing/astro-paper/edit/main/",
   },
   dynamicOgImage: true, // enable automatic dynamic og-image generation
+  dir: "ltr", // "rtl" | "auto"
   lang: "en", // html lang code. Set this empty and default will be "en"
   timezone: "Asia/Bangkok", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 } as const;
@@ -66,8 +66,24 @@ Here are SITE configuration options
 | `showBackButton`      | Determines whether to display the `Go back` button in each blog post.                                                                                                                                                                                                                                                                                                                                                             |
 | `editPost`            | This option allows users to suggest changes to a blog post by providing an edit link under blog post titles. This feature can be disabled by setting `SITE.editPost.enabled` to `false`.                                                                                                                                                                                                                                          |
 | `dynamicOgImage`      | This option controls whether to [generate dynamic og-image](https://astro-paper.pages.dev/posts/dynamic-og-image-generation-in-astropaper-blog-posts/) if no `ogImage` is specified in the blog post frontmatter. If you have many blog posts, you might want to disable this feature. See the [trade-off](https://astro-paper.pages.dev/posts/dynamic-og-image-generation-in-astropaper-blog-posts/#trade-off) for more details. |
+| `dir`                 | Specifies the text direction of the entire blog. Used as [HTML dir attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/dir) in `<html dir="ltr">`. Supported values: `ltr` \| `rtl` \| `auto`                                                                                                                                                                                                |
 | `lang`                | Used as HTML ISO Language code in `<html lang"en">`. Default is `en`.                                                                                                                                                                                                                                                                                                                                                             |
 | `timezone`            | This option allows you to specify your timezone using the [IANA format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Setting this ensures consistent timestamps across your localhost and deployed site, eliminating time differences.                                                                                                                                                                          |
+
+## Update layout width
+
+The default `max-width` for the entire blog is `768px` (`max-w-3xl`). If you'd like to change it, you can easily update the `max-w-app` utility in your `global.css`. For instance:
+
+```css file=src/styles/global.css
+@utility max-w-app {
+  /* [!code --:1] */
+  @apply max-w-3xl;
+  /* [!code ++:1] */
+  @apply max-w-4xl xl:max-w-5xl;
+}
+```
+
+You can explore more `max-width` values in the [Tailwind CSS docs](https://tailwindcss.com/docs/max-width).
 
 ## Configuring logo or title
 
@@ -86,11 +102,11 @@ This is the easiest option. You just have to update `SITE.title` in `src/config.
 You might want to use this option if you want to use an SVG logo.
 
 - First add an SVG inside `src/assets` directory. (eg: `src/assets/dummy-logo.svg`)
-- Then import that SVG inside `src/components/Header.astro`
+- Then import that SVG inside `Header.astro`
 
-  ```astro
+  ```astro file=src/components/Header.astro
   ---
-  // other imports
+  // ...
   import DummyLogo from "@/assets/dummy-logo.svg";
   ---
   ```
@@ -114,11 +130,11 @@ The best part of this approach is that you can customize your SVG styles as need
 If your logo is an image but not SVG, you can use Astro's Image component.
 
 - Add your logo inside `src/assets` directory. (eg: `src/assets/dummy-logo.png`)
-- Import `Image` and your logo in `src/components/Header.astro`
+- Import `Image` and your logo in `Header.astro`
 
-  ```astro
+  ```astro file=src/components/Header.astro
   ---
-  // other imports
+  // ...
   import { Image } from "astro:assets";
   import dummyLogo from "@/assets/dummy-logo.png";
   ---
@@ -140,16 +156,16 @@ With this approach, you can still adjust your image's appearance using CSS class
 
 ## Configuring social links
 
-You can configure social links in `SOCIALS` object inside `src/constants.ts`.
-
 ![An arrow pointing at social link icons](https://github.com/user-attachments/assets/8b895400-d088-442f-881b-02d2443e00cf)
 
-```ts
+You can configure social links in `SOCIALS` object inside `constants.ts`.
+
+```ts file=src/constants.ts
 export const SOCIALS = [
   {
-    name: "Github",
+    name: "GitHub",
     href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on Github`,
+    linkTitle: ` ${SITE.title} on GitHub`,
     icon: IconGitHub,
   },
   {

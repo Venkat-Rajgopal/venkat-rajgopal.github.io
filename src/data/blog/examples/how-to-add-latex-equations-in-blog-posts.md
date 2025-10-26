@@ -33,35 +33,35 @@ In this section, you will find instructions on how to add support for LaTeX in y
    pnpm install rehype-katex remark-math katex
    ```
 
-2. Update the Astro configuration (`astro.config.ts`) to use the these plugins:
+2. Update the Astro configuration to use the these plugins:
 
-   ```ts
-   // other imports
+   ```ts file=astro.config.ts
+   // ...
    import remarkMath from "remark-math";
    import rehypeKatex from "rehype-katex";
 
    export default defineConfig({
-     // other configs
+     // ...
      markdown: {
        remarkPlugins: [
-         remarkMath, // <- new plugin
+         remarkMath, // [!code ++]
          remarkToc,
          [remarkCollapse, { test: "Table of contents" }],
        ],
-       rehypePlugins: [rehypeKatex], // <- new plugin
+       rehypePlugins: [rehypeKatex], // [!code ++]
        shikiConfig: {
          // For more themes, visit https://shiki.style/themes
          themes: { light: "min-light", dark: "night-owl" },
-         wrap: true,
+         wrap: false,
        },
      },
-     // other configs
+     // ...
    });
    ```
 
-3. Import KaTeX CSS in the main layout file `src/layouts/Layout.astro`
+3. Import KaTeX CSS in the main layout file
 
-   ```astro
+   ```astro file=src/layouts/Layout.astro
    ---
    import { SITE } from "@config";
 
@@ -72,6 +72,7 @@ In this section, you will find instructions on how to add support for LaTeX in y
    <!-- others... -->
    <script is:inline src="/toggle-theme.js"></script>
 
+   <!-- [!code highlight:4] -->
    <link
      rel="stylesheet"
      href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
@@ -82,15 +83,16 @@ In this section, you will find instructions on how to add support for LaTeX in y
    </body>
    ```
 
-4. As the last step, add a text-color for `katex` in `src/styles/typography.css`.
+4. As the last step, add a text-color for `katex` in `typography.css`.
 
-   ```css
+   ```css file=src/styles/typography.css
    @plugin '@tailwindcss/typography';
 
    @layer base {
      /* other classes */
 
      /* Katex text color */
+     /* [!code highlight:3] */
      .prose .katex-display {
        @apply text-foreground;
      }
