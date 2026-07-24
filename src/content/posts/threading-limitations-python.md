@@ -8,13 +8,24 @@ draft: false
 tags:
   - python 🐍
   - rust 🦀
-  - concurrency
 description:
   Why Python threads can't speed up CPU-bound work, how multiprocessing helps, and how Rust's Rayon achieves true parallelism without a GIL.
 ---
 
-# 🧵 Threading limitations in Python
-Take a look at the for loop which is a CPU heavy operation. Here is a single-threaded script that counts the number of primes between 1 and 10 million.
+## Table of Contents
+- [The Illusion of Parallelism: Python Threading 🧵](#the-illusion-of-parallelism-python-threading-)
+  - [The Result?](#the-result)
+  - [Why This Happens: A Closer Look at the GIL](#why-this-happens-a-closer-look-at-the-gil)
+- [The Python Alternative: Multiprocessing](#the-python-alternative-multiprocessing)
+  - [The Hidden Cost: Overhead](#the-hidden-cost-overhead)
+  - [Other Multiprocessing Gotchas](#other-multiprocessing-gotchas)
+- [True Parallelism with Rust 🦀](#true-parallelism-with-rust-)
+- [Summary](#summary)
+
+
+On a multi-core machine, splitting a CPU-heavy loop across threads should make the work finish faster — that's the entire point of having more cores. In Python, it doesn't. The threads don't crash and they don't throw errors; they just quietly fail to speed anything up.
+
+Here's a concrete example: a single-threaded script that counts the number of primes between 1 and 3 million.
 
 
 ```python
@@ -47,10 +58,10 @@ Sequential Time taken: 8.69 seconds
 ```
 
 
-A massive CPU heavy task like this, a `for` loop across `n` threads is expected to finish n times faster on your quad-core machine. Instead it takes the same time or sometimes even longer. This is because of the **Global Interpreter Lock (GIL)** in Python, which allows only one thread to execute at a time, even on multi-core systems.
+For a CPU-heavy task like this, splitting the `for` loop across `n` threads is expected to finish roughly n times faster on a quad-core machine. Instead, it takes the same time — sometimes even longer. This is because of the **Global Interpreter Lock (GIL)** in Python, which allows only one thread to execute Python bytecode at a time, even on multi-core systems.
 
-## The Illusion: Python Threading 🧵
-Logically, if we have a 4-core CPU, we should be able to split the 3 million numbers into four chunks and process them simultaneously. Using Python's `ThreadPoolExecutor` this would be:
+## The Illusion of Parallelism: Python Threading 🧵
+On paper, a 4-core CPU should let us split the 3 million numbers into four chunks and process them simultaneously. Here's what that looks like with Python's `ThreadPoolExecutor`:
 
 ```python
 import time
@@ -83,8 +94,19 @@ Number of primes between 1 and 3 million: 216816
 Threaded Time taken: 8.67 seconds
 ```
 
+### Why This Happens: A Closer Look at the GIL
 
-# The Python Alternative: Multiprocessing
+The GIL isn't an arbitrary restriction — it exists because CPython's memory management relies on reference counting. Every object carries a counter of how many references point to it, incremented and decremented constantly as objects are created, passed around, and discarded. Without a lock serializing access to that counter, two threads updating it at the same time could corrupt it, leaking memory or freeing an object still in use. The GIL is the trade-off CPython made to keep that bookkeeping simple and fast in the single-threaded case, at the cost of parallelism in the multi-threaded one.
+
+A few details that are easy to miss:
+
+- **It's not a per-loop lock, it's a per-instruction one.** The interpreter switches which thread holds the GIL every few milliseconds (`sys.getswitchinterval()`, 5ms by default) or on certain bytecode boundaries — not once per `for` loop. Threads are genuinely interleaved, just never running Python bytecode *simultaneously*.
+- **The GIL is released around blocking calls.** File I/O, network calls, `time.sleep`, and `subprocess` calls all release the GIL while they wait, which is exactly why threading *does* help I/O-bound work — the thread isn't holding the lock while it's idle.
+- **Some C extensions release it too.** Libraries like NumPy, hashlib, and zlib drop the GIL during their C-level number crunching, so threaded code that spends most of its time inside those calls can see real speedups even though it's "just Python threading."
+- **The GIL prevents memory corruption, not race conditions.** Because bytecode instructions can interleave, something as simple as `counter += 1` across multiple threads is still not atomic (it's a read, an add, and a write — three separate opportunities to switch threads) and can lose updates. The GIL guarantees the interpreter itself won't crash; it says nothing about your program's logic being correct.
+- **This may not be permanent.** Python 3.13 shipped an experimental free-threaded build (PEP 703) that can run without the GIL entirely. It's opt-in and the C-extension ecosystem is still catching up, but it's the first real crack in an assumption that's held since Python's early days.
+
+## The Python Alternative: Multiprocessing
 If you have a CPU-bound task (like mathematical computations, image processing, or heavy loops), Python threads will not help you. You need `Multiprocessing`.
 
 Instead of creating new threads within the same program, the multiprocessing module creates entirely new, separate OS processes.
@@ -136,7 +158,9 @@ Found 216816 primes.
 Multiprocessing Time: 3.09 seconds
 ```
 ### The Hidden Cost: Overhead
-If multiprocessing is so great, why doesn't Python just use it for everything? Because spawning a brand new OS process is incredibly heavy compared to spawning a thread.
+> If multiprocessing is so great, why doesn't Python just use it for everything? 
+
+Because spawning a brand new OS process is incredibly heavy compared to spawning a thread.
 
 | | Multithreading | Multiprocessing |
 |---|---|---|
@@ -145,14 +169,27 @@ If multiprocessing is so great, why doesn't Python just use it for everything? B
 | Data Sharing | Easy (but dangerous). Variables are shared instantly. | Hard. Data must be "pickled" (serialized), copied across memory boundaries, and "unpickled". |
 
 
-> [!tip] Key Insight
-> Multiprocessing is perfect for CPU-bound tasks where the computation takes a long time (like our prime number crunching). But if you try to use multiprocessing to run thousands of small, quick tasks, the time it takes Python to serialize the data, boot up the new processes, and copy the memory will actually take longer than the math itself!
+> [!tip] Takeway
+> `Multiprocessing` is perfect for CPU-bound tasks where the computation takes a long time *(like our prime number crunching)*. 
+> 
+> But if you try to use multiprocessing to run thousands of small, quick tasks, the time it takes Python to serialize the data, boot up the new processes, and copy the memory will actually take longer than the math itself!
 
+### Other Multiprocessing Gotchas
 
-# True Parallelism: Rust 🦀
+The memory/startup/data-sharing table above is the headline cost, but a few other sharp edges are worth knowing about before reaching for `multiprocessing`:
+
+- **Not everything can cross the process boundary.** `multiprocessing` uses pickle to hand data across the boundary between your main process and each worker process, since they don't share memory — everything you send has to be serialized, shipped over, and unpickled on the other side. Arguments and return values are pickled to get between processes, and pickle can't serialize lambdas, closures over local state, open file handles, database connections, or generators. This is why `count_primes_range` above is a plain top-level function instead of an inline lambda — `executor.map(lambda r: ..., ranges)` would fail with a `PicklingError` under `ProcessPoolExecutor`.
+- **The start method changes the rules.** On Linux, `multiprocessing` defaults to `fork`, which clones the parent process's memory instantly — cheap, and children inherit already-loaded state. On macOS (since Python 3.8) and Windows, the default is `spawn`: each worker boots a fresh interpreter and re-imports the module from scratch. That's why the `if __name__ == "__main__":` guard is mandatory — without it, `spawn` re-executes your top-level code in every worker, including re-launching the pool itself.
+- **There's no shared state by default.** Each process gets its own copy of memory, so global variables and objects aren't shared the way they are with threads. Sharing state on purpose requires `multiprocessing.Value`/`Array` for simple types, a `Manager` for shared proxies of dicts/lists (with its own IPC overhead), or `multiprocessing.shared_memory` (Python 3.8+) for raw shared buffers — all slower and more error-prone than a thread just reading a shared variable.
+- **Debugging is harder.** A traceback raised in a worker has to be pickled and shipped back to the main process before you see it, which can lose context. Python's built-in interactive debugger, `pdb`, attaches to a single running process and can't just hop between workers. You generally need explicit logging or a remote debugger attached per process.
+- **Locks are still your problem.** Multiprocessing sidesteps the GIL, but if workers do share memory (via `Manager` or `shared_memory`), you're back to needing `Lock`/`Semaphore` to avoid race conditions — parallelism doesn't remove the need for synchronization, it just moves where you need it.
+
+---
+
+## True Parallelism with Rust 🦀
 Rust does not have a GIL. It achieves memory safety at compile time, meaning threads are free to run truly in parallel without needing a giant lock to protect the interpreter.
 
-To make this dead simple in Rust, we use a massively popular crate (library) called `Rayon`. `Rayon` introduces data parallelism. By changing a call from `iter()` to `par_iter()` (parallel iterator) will automatically divide the work and distribute it across all available CPU cores.
+To make this dead simple in Rust, we use a massively popular crate (library) called [`Rayon`](https://github.com/rayon-rs/rayon). `Rayon` introduces data parallelism. By changing a call from `iter()` to `par_iter()` (parallel iterator) will automatically divide the work and distribute it across all available CPU cores.
 
 Here is the equivalent Rust code:
 
@@ -213,6 +250,8 @@ Here is a quick recap of the results across all three approaches, counting prime
 
 The key takeaways:
 
-- **Threading** in Python is useful for I/O-bound tasks (network calls, file reads), not CPU-bound work. The GIL ensures only one thread runs Python bytecode at a time.
-- **Multiprocessing** sidesteps the GIL by spawning separate OS processes, giving real parallelism at the cost of process startup overhead and serialization between workers.
+- **Threading** in Python is useful for I/O-bound tasks (network calls, file reads), not CPU-bound work. The GIL ensures only one thread runs Python bytecode at a time, though it's released around blocking I/O and inside some C extensions like NumPy.
+- **Multiprocessing** sidesteps the GIL by spawning separate OS processes, giving real parallelism at the cost of process startup overhead, pickling, and no shared memory by default.
+- **Asyncio** is a third option worth knowing: single-threaded cooperative concurrency, no GIL contention or process overhead, but only useful for I/O-bound work — it doesn't help CPU-bound loops any more than threading does.
 - **Rust** has no GIL. With `Rayon`, adding parallelism is a one-line change and the compiler statically proves the code is race-free, giving you full CPU utilization with zero runtime overhead.
+- **Looking ahead:** Python 3.13's experimental free-threaded build removes the GIL entirely — still early, but worth watching if CPU-bound threading is a recurring pain point.
