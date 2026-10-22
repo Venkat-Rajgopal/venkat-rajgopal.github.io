@@ -33,4 +33,4 @@ public/pagefind
 compose.override.yaml
 
 
-claude/*
+*claude/*
