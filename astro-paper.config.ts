@@ -2,7 +2,7 @@ import { defineAstroPaperConfig } from "./src/types/config";
 
 export default defineAstroPaperConfig({
   site: {
-    url: "https://astro-paper.pages.dev/",
+    url: "https://venkat-rajgopal.github.io/",
     title: "Echos 📣",
     description: "A minimal, responsive and SEO-friendly Astro blog theme.",
     author: "Sat Naing",
